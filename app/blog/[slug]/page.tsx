@@ -51,112 +51,126 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
             </div>
           </div>
 
-          {/* First description image - Full width */}
+          {/* First description image - Full width with optimizations */}
           <div className="w-full relative mb-12 overflow-hidden">
-            <div className="w-screen max-w-[100vw]">
+            <div className="w-screen max-w-[100vw] bg-gray-100 min-h-[400px] md:min-h-[600px] flex items-center justify-center">
               <Image
-                  src={post.descImage1 || "https://images.unsplash.com/photo-1516321310768-61d7c7b85f0b"}
+                  src={post.descImage1 || "https://images.unsplash.com/photo-1516321310768-61d7c7b85f0b?auto=format&fit=crop&w=1920&q=80"}
                   alt={`${post.title} - Description Image 1`}
                   width={1920}
                   height={1080}
-                  className="w-full h-auto object-cover"
-                  priority
+                  className="w-full h-auto object-cover transition-opacity duration-300"
+                  priority={true}
+                  placeholder="blur"
+                  blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWEREiMxUf/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
                   sizes="100vw"
+                  quality={85}
+                  loading="eager"
               />
             </div>
           </div>
 
           <div className="container mx-auto px-4">
-            {/* Content sections with left-aligned headings */}
+            {/* Introduction Card */}
             <div className="bg-white shadow-lg rounded-2xl mb-6">
-              <div className="p-6">
-                <h3 className="font-bold text-2xl text-black mb-4">
+              <div className="p-6 flex flex-col md:flex-row md:items-start">
+                <h3 className="font-bold text-2xl text-black mb-4 md:mb-0 md:w-1/4">
                   Introduction:
                 </h3>
-                <p className="text-lg text-black">
+                <p className="text-lg text-black md:w-3/4">
                   {post.content[0] || "A leading tech hub, Hyderabad emphasizes digital marketing. Agencies deliver data-driven, regional-focused strategies with global reach."}
                 </p>
               </div>
             </div>
 
+            {/* Strategy Card */}
             <div className="bg-white shadow-lg rounded-2xl mb-6">
-              <div className="p-6">
-                <h3 className="font-bold text-2xl text-black mb-4">
+              <div className="p-6 flex flex-col md:flex-row md:items-start">
+                <h3 className="font-bold text-2xl text-black mb-4 md:mb-0 md:w-1/4">
                   Strategy:
                 </h3>
-                <p className="text-lg text-black">
+                <p className="text-lg text-black md:w-3/4">
                   {post.content[1] || "A leading tech hub, Hyderabad emphasizes digital marketing. Agencies deliver data-driven, regional-focused strategies with global reach."}
                 </p>
               </div>
             </div>
 
-            <div className="bg-white shadow-lg rounded-2xl mb-12">
-              <div className="p-6">
-                <h3 className="font-bold text-2xl text-black mb-4">
+            {/* Implementation Card */}
+            <div className="bg-white shadow-lg rounded-2xl mb-6">
+              <div className="p-6 flex flex-col md:flex-row md:items-start">
+                <h3 className="font-bold text-2xl text-black mb-4 md:mb-0 md:w-1/4">
                   Implementation:
                 </h3>
-                <p className="text-lg text-black">
+                <p className="text-lg text-black md:w-3/4">
                   {post.content[2] || "A leading tech hub, Hyderabad emphasizes digital marketing. Agencies deliver data-driven, regional-focused strategies with global reach."}
                 </p>
               </div>
             </div>
           </div>
 
-          {/* Second description image - Full width */}
+          {/* Second description image - Full width with optimizations */}
           <div className="w-full relative mb-12 overflow-hidden">
-            <div className="w-screen max-w-[100vw]">
+            <div className="w-screen max-w-[100vw] bg-gray-100 min-h-[400px] md:min-h-[600px] flex items-center justify-center">
               <Image
-                  src={post.descImage2 || "https://images.unsplash.com/photo-1516321497487-e288fb19713f"}
+                  src={post.descImage2 || "https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=1920&q=80"}
                   alt={`${post.title} - Description Image 2`}
                   width={1920}
                   height={1080}
-                  className="w-full h-auto object-cover"
-                  priority
+                  className="w-full h-auto object-cover transition-opacity duration-300"
+                  priority={false}
+                  placeholder="blur"
+                  blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWEREiMxUf/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
                   sizes="100vw"
+                  quality={85}
+                  loading="lazy"
               />
             </div>
           </div>
 
           <div className="container mx-auto px-4">
+            {/* Results Card */}
             <div className="bg-white shadow-lg rounded-2xl mb-6">
-              <div className="p-6">
-                <h3 className="font-bold text-2xl text-black mb-4">
+              <div className="p-6 flex flex-col md:flex-row md:items-start">
+                <h3 className="font-bold text-2xl text-black mb-4 md:mb-0 md:w-1/4">
                   Results:
                 </h3>
-                <p className="text-lg text-black">
+                <p className="text-lg text-black md:w-3/4">
                   {post.content[3] || "A leading tech hub, Hyderabad emphasizes digital marketing. Agencies deliver data-driven, regional-focused strategies with global reach."}
                 </p>
               </div>
             </div>
 
+            {/* Analysis Card */}
             <div className="bg-white shadow-lg rounded-2xl mb-6">
-              <div className="p-6">
-                <h3 className="font-bold text-2xl text-black mb-4">
+              <div className="p-6 flex flex-col md:flex-row md:items-start">
+                <h3 className="font-bold text-2xl text-black mb-4 md:mb-0 md:w-1/4">
                   Analysis:
                 </h3>
-                <p className="text-lg text-black">
+                <p className="text-lg text-black md:w-3/4">
                   {post.content[4] || "A leading tech hub, Hyderabad emphasizes digital marketing. Agencies deliver data-driven, regional-focused strategies with global reach."}
                 </p>
               </div>
             </div>
 
+            {/* Conclusion Card */}
             <div className="bg-white shadow-lg rounded-2xl mb-6">
-              <div className="p-6">
-                <h3 className="font-bold text-2xl text-black mb-4">
+              <div className="p-6 flex flex-col md:flex-row md:items-start">
+                <h3 className="font-bold text-2xl text-black mb-4 md:mb-0 md:w-1/4">
                   Conclusion:
                 </h3>
-                <p className="text-lg text-black">
+                <p className="text-lg text-black md:w-3/4">
                   {post.content[5] || "A leading tech hub, Hyderabad emphasizes digital marketing. Agencies deliver data-driven, regional-focused strategies with global reach."}
                 </p>
               </div>
             </div>
 
+            {/* Next Steps Card */}
             <div className="bg-white shadow-lg rounded-2xl mb-12">
-              <div className="p-6">
-                <h3 className="font-bold text-2xl text-black mb-4">
+              <div className="p-6 flex flex-col md:flex-row md:items-start">
+                <h3 className="font-bold text-2xl text-black mb-4 md:mb-0 md:w-1/4">
                   Next Steps:
                 </h3>
-                <p className="text-lg text-black">
+                <p className="text-lg text-black md:w-3/4">
                   {post.content[6] || "A leading tech hub, Hyderabad emphasizes digital marketing. Agencies deliver data-driven, regional-focused strategies with global reach."}
                 </p>
               </div>

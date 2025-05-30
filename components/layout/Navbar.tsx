@@ -12,14 +12,19 @@ export default function Navbar() {
     const pathname = usePathname();
 
     const navLinks = [
-        { label: 'HOME', href: '/' },
         { label: 'SERVICES', href: '/services' },
         { label: 'BLOG', href: '/blog' },
         { label: 'PORTFOLIO', href: '/portfolio' },
         { label: 'CONTACT US', href: '/contact' },
     ];
 
-    const isAlwaysBlackBg = pathname.startsWith('/blog/') || pathname.startsWith('/portfolio/');
+    // Mobile navigation links with HOME button added
+    const mobileNavLinks = [
+        { label: 'HOME', href: '/' },
+        ...navLinks
+    ];
+
+    const isAlwaysBlackBg = pathname.startsWith('/blog/') || pathname.startsWith('/portfolio/') || pathname === '/services';
 
     useEffect(() => {
         if (isAlwaysBlackBg) {
@@ -54,9 +59,7 @@ export default function Navbar() {
 
     return (
         <header
-            className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-                scrolled ? 'bg-black/90 backdrop-blur-sm py-3' : 'bg-transparent py-4'
-            }`}
+            className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-black/90 backdrop-blur-sm py-3' : 'bg-transparent py-4'}`}
         >
             <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 2xl:px-14 flex justify-between items-center max-w-[1920px]">
 
@@ -80,7 +83,11 @@ export default function Navbar() {
                             key={link.href}
                             href={link.href}
                             className={`font-[Sharp Grotesk] font-medium text-[16px] leading-[100%] tracking-[0] uppercase transition-colors hover:text-white/70 ${
-                                pathname === link.href ? 'text-white' : 'text-white/80'
+                                link.label === 'CONTACT US'
+                                    ? 'bg-[#D22C2C] text-white px-[12px] py-[12px] w-[130px] h-[40px] flex items-center justify-center'
+                                    : pathname === link.href
+                                        ? 'text-white'
+                                        : 'text-white/80'
                             }`}
                         >
                             {link.label}
@@ -98,7 +105,7 @@ export default function Navbar() {
                 </button>
 
                 {/* Mobile Menu */}
-                <AnimatedMobileMenu isOpen={isMenuOpen} links={navLinks} pathname={pathname} />
+                <AnimatedMobileMenu isOpen={isMenuOpen} links={mobileNavLinks} pathname={pathname} />
             </div>
         </header>
     );
@@ -125,12 +132,12 @@ function AnimatedMobileMenu({
 
             {/* Mobile Menu */}
             <div
-                className={`fixed top-0 left-0 right-0 bottom-0 z-[55] flex items-center justify-center md:hidden transition-transform duration-300 ease-in-out ${
+                className={`fixed top-0 left-0 right-0 bottom-0 z-[55] flex items-center md:hidden transition-transform duration-300 ease-in-out ${
                     isOpen ? 'translate-x-0' : 'translate-x-full'
                 }`}
                 style={{ height: '100vh' }}
             >
-                <nav className="flex flex-col items-center justify-center space-y-8 px-4 w-full">
+                <nav className="flex flex-col items-start xs:items-start sm:items-start justify-center space-y-8 px-4 w-full">
                     {links.map((link, i) => (
                         <div
                             key={link.href}

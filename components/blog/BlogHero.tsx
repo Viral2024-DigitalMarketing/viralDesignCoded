@@ -1,42 +1,13 @@
 "use client";
 
 import { useEffect } from "react";
-import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
 const BlogHero: React.FC = () => {
-    const controls = useAnimation();
-    const [ref, inView] = useInView({
+    const [ref] = useInView({
         triggerOnce: true,
         threshold: 0.2,
     });
-
-    useEffect(() => {
-        if (inView) {
-            controls.start("visible");
-        }
-    }, [controls, inView]);
-
-    const containerVariants = {
-        hidden: { opacity: 0 },
-        visible: {
-            opacity: 1,
-            transition: {
-                staggerChildren: 0.2,
-            },
-        },
-    };
-
-    const itemVariants = {
-        hidden: { opacity: 0, y: 20 },
-        visible: {
-            opacity: 1,
-            y: 0,
-            transition: {
-                duration: 0.5,
-            },
-        },
-    };
 
     return (
         <section
@@ -45,16 +16,12 @@ const BlogHero: React.FC = () => {
                 minHeight: "60px",
             }}
         >
-            <motion.div
+            <div
                 ref={ref}
-                variants={containerVariants}
-                initial="hidden"
-                animate={controls}
                 className="w-full flex flex-col justify-between lg:h-[410px]"
             >
                 {/* BLOGS Heading */}
-                <motion.div
-                    variants={itemVariants}
+                <div
                     className="pl-[20px] pt-[80px] md:pt-[130px] md:pl-[150px] heading-container"
                 >
                     <h1
@@ -68,41 +35,43 @@ const BlogHero: React.FC = () => {
                     >
                         BLOGS
                     </h1>
-                </motion.div>
+                </div>
 
-                {/* Description Text - Hidden on mobile */}
-                <motion.div
-                    variants={itemVariants}
+                <div
                     className="absolute bottom-0 right-0 pb-[80px] text-right hidden md:block"
                     style={{
                         marginRight: "150px",
-                        fontFamily: "Sharp Grotesk, Arial, sans-serif",
+                        fontFamily: "Helvetica, Arial, sans-serif",
                         fontWeight: 400,
                         fontSize: "clamp(16px, 2vw, 18px)",
                         lineHeight: "125%",
                         letterSpacing: "0%",
                         maxWidth: "400px",
                         textAlign: "left",
+                        color: "#CCCCCC",
                     }}
                 >
                     <p>
                         Dive into our insights on digital marketing trends, strategies, and success stories.
                     </p>
-                </motion.div>
-            </motion.div>
+                </div>
+            </div>
 
             {/* Responsive fix for mobile */}
             <style jsx>{`
                 @media (max-width: 767px) {
                     .heading-text {
-                        margin-top: 0; /* Remove top gap on mobile */
+                        margin-top: 0; /* Remove top margin on mobile */
                     }
+
                     .heading-container {
-                        padding-top: 20px; /* Reduce top padding on mobile */
+                        padding-top: 50px; /* Increased top padding to push content below navbar */
                         padding-bottom: 0; /* Remove bottom padding on mobile */
                     }
+
                     section {
                         min-height: auto; /* Adjust section height to content */
+                        padding-top: 20px; /* Add top padding to section to ensure clearance */
                         padding-bottom: 0; /* Remove bottom gap on mobile */
                     }
                 }

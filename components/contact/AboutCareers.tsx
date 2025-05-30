@@ -1,8 +1,10 @@
-'use client';
+"use client";
 
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ChevronDown, ChevronUp } from "lucide-react";
+import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 // Define prop types for the job cards
 interface JobCardProps {
@@ -24,9 +26,10 @@ const MobileJobCard = ({
                            isOpen,
                            toggleOpen,
                        }: MobileJobCardProps) => {
+    const router = useRouter();
+
     return (
         <div className="w-full bg-white rounded-lg shadow-sm mb-4 overflow-hidden">
-            {/* Job Title Header (always visible) */}
             <div
                 className="p-5 flex justify-between items-center cursor-pointer"
                 onClick={toggleOpen}
@@ -37,11 +40,9 @@ const MobileJobCard = ({
                 {isOpen ? <ChevronUp size={24} /> : <ChevronDown size={24} />}
             </div>
 
-            {/* Expandable Content */}
             {isOpen && (
                 <div className="border-t border-gray-100">
                     <div className="p-5 pt-4">
-                        {/* About the role */}
                         <div className="mb-4">
                             <h3 className="font-sharp-grotesk text-base font-medium mb-2">
                                 About the role
@@ -51,7 +52,6 @@ const MobileJobCard = ({
                             </p>
                         </div>
 
-                        {/* Responsibilities */}
                         <div className="mb-4">
                             <h3 className="font-sharp-grotesk text-base font-medium mb-2">
                                 Responsibilities:
@@ -63,7 +63,6 @@ const MobileJobCard = ({
                             </ul>
                         </div>
 
-                        {/* To Apply */}
                         <div className="mb-4">
                             <h3 className="font-sharp-grotesk text-base font-medium mb-2">
                                 To Apply:
@@ -73,8 +72,10 @@ const MobileJobCard = ({
                             </p>
                         </div>
 
-                        {/* Apply Button with updated styling */}
-                        <Button className="rounded-none w-[150px] xs:w-[150px] sm:w-[150px] md:w-auto bg-white text-[#E30000] hover:bg-gray-100 px-3 xs:pl-4 xs:pr-6 sm:pl-5 sm:pr-7 py-1 xs:py-1 sm:py-1 md:py-2 font-bold text-[0.85rem] xs:text-[0.9rem] sm:text-[1rem] md:text-lg tracking-tighter flex items-center gap-1 ml-2 xs:ml-4 md:ml-6 md:mr-[0.8rem] lg:mr-[1.5rem]">
+                        <Button
+                            onClick={() => router.push("/contact")} // Navigate to contact page
+                            className="rounded-none w-[150px] xs:w-[150px] sm:w-[150px] md:w-auto bg-white text-[#E30000] hover:bg-gray-100 px-3 xs:pl-4 xs:pr-6 sm:pl-5 sm:pr-7 py-1 xs:py-1 sm:py-1 md:py-2 font-bold text-[0.85rem] xs:text-[0.9rem] sm:text-[1rem] md:text-lg tracking-tighter flex items-center gap-1 ml-2 xs:ml-4 md:ml-6 md:mr-[0.8rem] lg:mr-[1.5rem]"
+                        >
                             <img
                                 src="/images/log.svg"
                                 alt="Button Icon"
@@ -92,19 +93,15 @@ const MobileJobCard = ({
 };
 
 // Job card component for desktop
-const DesktopJobCard = ({
-                            title,
-                            description,
-                            responsibilities,
-                        }: JobCardProps) => {
+const DesktopJobCard = ({ title, description, responsibilities }: JobCardProps) => {
+    const router = useRouter();
+
     return (
         <div className="w-full max-w-[1280px] p-6 lg:p-8 flex flex-col items-start gap-4 lg:gap-6 bg-white rounded-lg shadow-sm mb-8">
-            {/* Job Title */}
             <h2 className="w-full text-left font-sharp-grotesk text-2xl lg:text-4xl font-light">
                 {title}
             </h2>
 
-            {/* About the role */}
             <div className="w-full">
                 <h3 className="font-sharp-grotesk text-base lg:text-lg font-medium mb-2">
                     About the role
@@ -114,7 +111,6 @@ const DesktopJobCard = ({
                 </p>
             </div>
 
-            {/* Responsibilities */}
             <div className="w-full">
                 <h3 className="font-sharp-grotesk text-base lg:text-lg font-medium mb-2">
                     Responsibilities:
@@ -126,7 +122,6 @@ const DesktopJobCard = ({
                 </ul>
             </div>
 
-            {/* To Apply */}
             <div className="w-full">
                 <h3 className="font-sharp-grotesk text-base lg:text-lg font-medium mb-2">
                     To Apply:
@@ -136,14 +131,17 @@ const DesktopJobCard = ({
                 </p>
             </div>
 
-            {/* Apply Button with updated styling */}
-            <Button className="rounded-none w-[150px] xs:w-[150px] sm:w-[150px] md:w-auto bg-white text-[#E30000] hover:bg-gray-100 px-3 xs:pl-4 xs:pr-6 sm:pl-5 sm:pr-7 py-1 xs:py-1 sm:py-1 md:py-2 font-bold text-[0.85rem] xs:text-[0.9rem] sm:text-[1rem] md:text-lg tracking-tighter flex items-center gap-1 ml-2 xs:ml-4 md:ml-6 md:mr-[0.8rem] lg:mr-[1.5rem]">
+            <Button
+                onClick={() => router.push("/contact")} // Navigate to contact page
+                className="rounded-none w-[150px] xs:w-[150px] sm:w-[150px] md:w-auto bg-white text-[#E30000] hover:bg-gray-100 px-3 xs:pl-4 xs:pr-6 sm:pl-5 sm:pr-7 py-1 xs:py-1 sm:py-1 md:py-2 font-bold text-[0.85rem] xs:text-[0.9rem] sm:text-[1rem] md:text-lg tracking-tighter flex items-center gap-1 ml-2 xs:ml-4 md:ml-6 md:mr-[0.8rem] lg:mr-[1.5rem]"
+            >
                 <img
                     src="/images/log.svg"
                     alt="Button Icon"
-                    className="w-5 xs:w-6 sm:w-7 h-5 xs:h-6 sm:h-7 object-contain"
-                    width={24}
-                    height={24}
+
+                    width={10}  // Decreased width
+                    height={10} // Decreased height
+                    className="w-3 sm:w-4 md:w-5 h-3 sm:h-4 md:h-5 object-contain"
                 />
                 Bug us — let's build.
             </Button>
@@ -223,7 +221,7 @@ export default function AboutCareers() {
                 "Analyze content performance and optimize strategy.",
                 "Stay updated on content trends and best practices.",
             ],
-        }
+        },
     ];
 
     return (
@@ -231,22 +229,32 @@ export default function AboutCareers() {
             <div className="container mx-auto">
                 {/* Conditional Heading: "Open Roles" for mobile, full heading and tagline for desktop */}
                 <div className="mb-10 lg:mb-16">
-                    {/* Mobile Heading (xs, sm, md) */}
                     <div className="lg:hidden">
                         <h1 className="font-helvetica font-bold text-4xl sm:text-5xl md:text-6xl leading-tight tracking-tight mb-6">
                             Open Roles
                         </h1>
                     </div>
 
-                    {/* Desktop Heading and Tagline (lg and up) */}
                     <div className="hidden lg:flex flex-col lg:flex-row justify-between items-start lg:items-end">
                         <div className="w-full lg:w-1/2">
-                            <h1 className="font-helvetica font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[84px] leading-tight tracking-tight mb-6 lg:mb-0">
-                                Join the Viral Bug Tribe!
+                            <h1
+                                style={{
+                                    color: '#000000',
+                                    fontFamily: 'Helvetica',
+                                    fontSize: '84px',
+                                    fontStyle: 'normal',
+                                    fontWeight: 700,
+                                    lineHeight: '77px',
+                                    letterSpacing: '-3.36px',
+                                    textTransform: 'uppercase',
+                                }}
+                                className="mb-6 lg:mb-0"
+                            >
+                                Join The Tribe!
                             </h1>
                         </div>
-                        <div className="w-full lg:w-1/2">
-                            <p className="text-black font-sharp-grotesk text-base md:text-lg lg:text-xl">
+                        <div className="w-full lg:w-1/2 flex justify-end">
+                            <p className="text-black font-sharp-grotesk text-sm md:text-sm lg:text-sm max-w-[500px]">
                                 Growth, innovation, and excellence are our passion. If you're driven and collaborative, join our talented team of digital innovators! We're looking for passionate individuals who are excited about creating exceptional digital experiences.
                             </p>
                         </div>
@@ -279,26 +287,6 @@ export default function AboutCareers() {
                             />
                         </div>
                     ))}
-                </div>
-
-                {/* Final CTA */}
-                <div className="mt-12 lg:mt-16 bg-white rounded-lg shadow-sm p-6 lg:p-8">
-                    <h3 className="font-sharp-grotesk text-xl sm:text-2xl lg:text-3xl font-light mb-3 lg:mb-4">
-                        Don't see a position for you?
-                    </h3>
-                    <p className="font-sharp-grotesk text-base lg:text-lg font-normal mb-5 lg:mb-6 max-w-[1030px]">
-                        We're always interested in connecting with talented individuals. Send us your resume and let us know how you can contribute to our team.
-                    </p>
-                    <Button className="rounded-none w-[150px] xs:w-[150px] sm:w-[150px] md:w-auto bg-white text-[#E30000] hover:bg-gray-100 px-3 xs:pl-4 xs:pr-6 sm:pl-5 sm:pr-7 py-1 xs:py-1 sm:py-1 md:py-2 font-bold text-[0.85rem] xs:text-[0.9rem] sm:text-[1rem] md:text-lg tracking-tighter flex items-center gap-1 ml-2 xs:ml-4 md:ml-6 md:mr-[0.8rem] lg:mr-[1.5rem]">
-                        <img
-                            src="/images/log.svg"
-                            alt="Button Icon"
-                            className="w-5 xs:w-6 sm:w-7 h-5 xs:h-6 sm:h-7 object-contain"
-                            width={24}
-                            height={24}
-                        />
-                        Bug us — let's build.
-                    </Button>
                 </div>
             </div>
         </section>

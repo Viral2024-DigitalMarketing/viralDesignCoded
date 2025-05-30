@@ -1,3 +1,19 @@
+/*@font-face {*/
+/*  font-family: 'Sharp Grotesk';*/
+/*  src: url('/fonts/sharp-grotesk-medium-25-regular.woff') format('woff');*/
+/*  font-weight: normal;*/
+/*  font-style: normal;*/
+/*}*/
+
+/*@font-face {*/
+/*  font-family: 'CustomFont';*/
+/*  src: url('/fonts/Light05.ttf') format('truetype');*/
+/*  font-weight: 300;*/
+/*  font-style: normal;*/
+/*}*/
+
+
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -7,6 +23,7 @@
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
 }
+
 
 @media (prefers-color-scheme: dark) {
   :root {

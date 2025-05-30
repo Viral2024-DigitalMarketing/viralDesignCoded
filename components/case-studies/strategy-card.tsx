@@ -49,13 +49,14 @@ const StrategyCard = ({ title, paragraphs, imageSrc, index }: StrategyCardProps)
                 </div>
 
                 <div className="w-full md:w-auto mx-0 md:mx-6 xl:mx-8 2xl:mx-10 mb-4 sm:mb-5 md:mb-0">
-                    <div className="rounded-xl overflow-hidden shadow-md w-full md:w-[200px] xl:w-[300px] 2xl:w-[350px] h-[180px] sm:h-[200px] md:h-[360px] xl:h-[420px] 2xl:h-[460px]">
+                    <div
+                        className="relative rounded-xl overflow-hidden shadow-md w-full md:w-[200px] xl:w-[300px] 2xl:w-[350px] aspect-[3/4] max-h-[500px]">
                         <Image
                             src={imageSrc || '/placeholder.svg'}
                             alt={title}
-                            width={250}
-                            height={380}
-                            className="w-full h-full object-cover"
+                            fill
+                            className="object-contain"
+                            sizes="(max-width: 768px) 100vw, 33vw"
                         />
                     </div>
                 </div>
@@ -65,7 +66,7 @@ const StrategyCard = ({ title, paragraphs, imageSrc, index }: StrategyCardProps)
                         {paragraphs.map((paragraph, idx) => (
                             <p
                                 key={idx}
-                                className="text-sm sm:text-base md:text-lg xl:text-xl 2xl:text-2xl text-black font-normal leading-relaxed"
+                                className="font-helvetica text-sm sm:text-base md:text-lg xl:text-xl 2xl:text-2xl text-black font-normal leading-relaxed"
                                 dangerouslySetInnerHTML={{ __html: paragraph }}
                             />
                         ))}

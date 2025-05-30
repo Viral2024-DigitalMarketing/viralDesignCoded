@@ -5,7 +5,7 @@ export type BlogPost = {
   image: string;
   excerpt: string;
   content: string[];
-  descImage1?: string; // Optional image for first description section
+  descImage1?: string; // Optional image for first description section 
   descImage2?: string; // Optional image for second description section
 };
 
@@ -84,17 +84,28 @@ export const blogPosts: BlogPost[] = [
   }
 ];
 
+
+
 export const caseStudies = [
   {
     slug: 'roast-and-toast',
     title: 'Roast and Toast',
+    logo: '/images/roast.svg',
     category: 'Digital Marketing',
     client: 'Roast n Toast',
     industry: 'Food & Beverage',
     year: '2024',
     services: ['Digital Marketing', 'Content Strategy', 'Customer Targeting', 'Analytics'],
     summary: 'A digital marketing campaign that brewed success for Roast n Toast’s premium coffee brand, achieving 64.2% more reach and 62.2% higher engagement.',
-    videos: ['/videos/roast.mp4'], // Updated to videos array
+    videos: [
+      '/videos/fir-vid.mp4',
+      '/videos/sec-vid.mp4',
+      '/videos/thir-vid.mp4',
+    ],
+    image1: '/images/music.svg',
+    image2: '/images/jui.svg',
+    image3: '/images/coffee-campaign.svg',
+
     challenge: [
       'Roast n Toast needed to expand their market reach and boost engagement while maintaining exceptional cost-efficiency.',
       'The challenge was to connect with a diverse audience of coffee enthusiasts and casual drinkers in a competitive market.',
@@ -118,13 +129,22 @@ export const caseStudies = [
   {
     slug: 'srikara-hospitals',
     title: 'Srikara Hospitals',
+    logo: '/images/srikara.svg',
     category: 'Healthcare Marketing',
     client: 'Srikara Hospitals',
     industry: 'Healthcare',
     year: '2024',
     services: ['Digital Marketing', 'Content Strategy', 'Patient Journey Optimization', 'Reputation Management'],
     summary: 'A digital transformation campaign that boosted Srikara Hospitals’ online presence, increasing appointment bookings by 73% and patient satisfaction by 37%.',
-    videos: ['/videos/srikara.mp4'], // Updated to videos array
+    videos: [
+      '/videos/first-sri.mp4',
+      '/videos/sri-sec.mp4',
+      '/videos/srik.mp4',
+      '/videos/sri-four.mp4',
+    ],
+    image2: '/images/sri-img.jpg',
+
+
     challenge: [
       'Srikara Hospitals needed to enhance their digital presence to increase appointment bookings and raise awareness of specialized services.',
       'The existing patient journey was fragmented, leading to high appointment cancellations and low engagement with digital content.',
