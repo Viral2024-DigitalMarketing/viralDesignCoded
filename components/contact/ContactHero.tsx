@@ -45,10 +45,10 @@ export default function ContactHero() {
         try {
             // Send email with EmailJS using your provided credentials
             const result = await emailjs.sendForm(
-                "service_xz71or6",      // Your service ID
-                "template_uhtgeye",     // Your template ID
+                "service_qa042zr",      // Your service ID
+                "template_pzfxkkg",     // Your template ID
                 e.target as HTMLFormElement, // The form element
-                "aZVryBVZDdFsdOwxf"     // Your public key
+                "ijojqFPNtRXtu98kg"     // Your public key
             );
 
             console.log("Email sent successfully:", result.text);
@@ -146,14 +146,14 @@ export default function ContactHero() {
                             }}
                         >
                             {/* Mobile view: Four lines for xs and sm */}
-                            <span className="block xs:block sm:block md:hidden leading-none ml-2"
-                                  style={{lineHeight: "1", marginBottom: "0px", paddingBottom: "0px"}}>Hear the</span>
-                            <span className="block xs:block sm:block md:hidden leading-none ml-2"
-                                  style={{lineHeight: "1", marginBottom: "0px", paddingBottom: "0px"}}>Buzz.</span>
-                            <span className="block xs:block sm:block md:hidden leading-none ml-2"
-                                  style={{lineHeight: "1", marginBottom: "0px", paddingBottom: "0px"}}>Build</span>
-                            <span className="block xs:block sm:block md:hidden leading-none ml-2"
-                                  style={{lineHeight: "1", marginBottom: "0px", paddingBottom: "0px"}}>the Brand.</span>
+                            <span className="block xs:block sm:block md:hidden leading-none ml-2 text-lg sm:text-2xl"
+                                  style={{ lineHeight: "1", marginBottom: "0px", paddingBottom: "0px" }}>Hear the</span>
+                            <span className="block xs:block sm:block md:hidden leading-none ml-2 text-lg sm:text-xl"
+                                  style={{ lineHeight: "1", marginBottom: "0px", paddingBottom: "0px" }}>Buzz.</span>
+                            <span className="block xs:block sm:block md:hidden leading-none ml-2 text-lg sm:text-xl"
+                                  style={{ lineHeight: "1", marginBottom: "0px", paddingBottom: "0px" }}>Build</span>
+                            <span className="block xs:block sm:block md:hidden leading-none ml-2 text-lg sm:text-xl"
+                                  style={{ lineHeight: "1", marginBottom: "0px", paddingBottom: "0px" }}>the Brand.</span>
 
                             {/* Desktop view: Two lines */}
                             <span className="hidden md:block" style={{lineHeight: "0.8"}}>
