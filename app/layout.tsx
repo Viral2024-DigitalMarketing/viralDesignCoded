@@ -6,7 +6,8 @@ import { Toaster } from "@/components/ui/toaster";
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import SplashScreen from '@/components/SplashScreen';
-import ChatbaseEmbed from '@/components/ChatbaseEmbed'; // ✅ import your Chatbot
+import ChatbaseEmbed from '@/components/Chatbot';
+import Chatbot from "@/components/Chatbot"; // ✅ import your Chatbot
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -32,7 +33,7 @@ export default function RootLayout({
         <body className={`${inter.className} bg-black text-white min-h-screen`}>
         {/*<SplashScreen />*/}
         <Navbar />
-        <ChatbaseEmbed />
+        <Chatbot />
         <main>{children}</main>
         <Footer />
         <Toaster />

@@ -107,22 +107,32 @@ const CTASection: React.FC = () => {
                                     whileHover={{scale: 1.03}}
                                     whileTap={{scale: 0.97}}
                                     className="flex items-center justify-center gap-1 xs:gap-1.5 sm:gap-1.5 md:gap-1.5 lg:gap-2
-    px-3 xs:px-3.5 sm:px-4 md:px-4 lg:px-6 sm:py-1.5 xs:py-1.25 py-1 lg:py-1.75
-    text-[0.625rem] xs:text-[0.6875rem] sm:text-[0.75rem] md:text-[0.9375rem] lg:text-xl     tracking-tighter font-bold"
+                 px-3 xs:px-3.5 sm:px-4 md:px-4 lg:px-6 sm:py-1.5 xs:py-1.25 py-1 lg:py-1.75
+                 text-[0.625rem] xs:text-[0.6875rem] sm:text-[0.75rem] md:text-[0.9375rem] lg:text-xl
+                 tracking-tighter font-bold"
                                     style={{
                                         backgroundColor: isBackgroundWhite ? "#FDE9E9" : "#FFFFFF",
                                         color: isBackgroundWhite ? "#E30000" : "#E30000",
-                                        fontFamily: "Helvetica", // Added Helvetica font
+                                        fontFamily: "Helvetica",
                                     }}
                                 >
-                                    <Image
-                                        src="/images/log.svg"
-                                        alt="Button Icon"
-                                        width={10}  // Decreased width
-                                        height={10} // Decreased height
-                                        className="w-3 sm:w-4 md:w-5 h-3 sm:h-4 md:h-5 object-contain"
-                                    />
-
+                                    <motion.div
+                                        initial={{x: 0}}
+                                        whileHover={{x: 8}} // Move 8px to the right on hover
+                                        transition={{
+                                            type: "spring",
+                                            stiffness: 200,
+                                            damping: 15
+                                        }} // Smooth spring animation
+                                    >
+                                        <Image
+                                            src="/images/log.svg"
+                                            alt="Button Icon"
+                                            width={10}
+                                            height={10}
+                                            className="w-3 sm:w-4 md:w-5 h-3 sm:h-4 md:h-5 object-contain"
+                                        />
+                                    </motion.div>
                                     Bug us — let's build.
                                 </motion.button>
                             </Link>

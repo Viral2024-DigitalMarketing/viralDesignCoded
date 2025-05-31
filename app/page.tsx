@@ -19,7 +19,7 @@ export default function Home() {
       <HeroSection />
       <VisibilityToConversion />
       <ProcessSection />
-      <TogetherWeMadeItHappen />
+        <TogetherWeMadeItHappen />
       <CTASection />
       <JoinOurTeamSection />
     </>

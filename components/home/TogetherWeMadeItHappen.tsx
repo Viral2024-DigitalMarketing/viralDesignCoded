@@ -50,7 +50,7 @@ const TogetherWeMadeItHappen: React.FC = () => {
         return [5, 6, 8, 9].includes(index); // 6th, 7th, 9th, 10th (0-indexed)
     };
 
-    // New helper function to determine if image should be even larger on desktop (lg+)
+    // Helper function to determine if image should be even larger on desktop (lg+)
     const isExtraLargeOnDesktop = (index: number) => {
         return [6, 9].includes(index); // 7th and 10th (0-indexed)
     };
@@ -131,7 +131,8 @@ const TogetherWeMadeItHappen: React.FC = () => {
                 {/* Desktop Layout (md and above) */}
                 <div className="hidden md:block">
                     <div
-                        className="flex flex-row items-start justify-between mb-12 gap-8 lg:gap-12 xl:gap-16 2xl:gap-20">
+                        className="flex flex-row items-start justify-between mb-12 gap-8 lg:gap-12 xl:gap-16 2xl:gap-20"
+                    >
                         <div
                             className={`w-2/3 transition-all duration-800 ease-out ${
                                 isVisible
@@ -141,7 +142,7 @@ const TogetherWeMadeItHappen: React.FC = () => {
                         >
                             <h1
                                 className="font-helvetica font-bold text-4xl md:text-5xl lg:text-[4.5rem] xl:text-[5rem] 2xl:text-[5.5rem] 3xl:text-[6rem] tracking-tight leading-[1.1] md:leading-[1.05] lg:leading-[1.05] xl:leading-[1.05] 2xl:leading-[1.05] 3xl:leading-[1.05]"
-                                style={{color: isWhiteBackground ? "#000000" : "#FFFFFF"}}
+                                style={{ color: isWhiteBackground ? "#000000" : "#FFFFFF" }}
                             >
                                 <span className="block mb-0 md:mb-1 lg:mb-1 xl:mb-1 2xl:mb-1 3xl:mb-2">Together,</span>
                                 <div
@@ -169,7 +170,7 @@ const TogetherWeMadeItHappen: React.FC = () => {
                         >
                             <p
                                 className="font-helvetica text-[12px] md:text-[13px] lg:text-[16px] xl:text-[17px] 2xl:text-[18px] 3xl:text-[19px] leading-relaxed text-left"
-                                style={{color: isWhiteBackground ? "#000000" : "#FFFFFF"}}
+                                style={{ color: isWhiteBackground ? "#000000" : "#FFFFFF" }}
                             >
                                 From bold ideas to measurable impact, these are the brands we've partnered with
                                 to turn vision into reality.
@@ -180,11 +181,12 @@ const TogetherWeMadeItHappen: React.FC = () => {
 
                 {/* Partner Images Grid */}
                 <div
-                    className="grid grid-cols-5 gap-x-1 xs:gap-x-2 sm:gap-x-3 md:gap-x-4 lg:gap-x-6 xl:gap-x-8 2xl:gap-x-10 gap-y-6 xs:gap-y-8 sm:gap-y-10 md:gap-y-8 lg:gap-y-10 xl:gap-y-12 2xl:gap-y-14 mt-4 xs:mt-6 sm:mt-8 md:mt-6 lg:mt-8">
+                    className="grid grid-cols-5 gap-x-1 xs:gap-x-2 sm:gap-x-3 md:gap-x-4 lg:gap-x-6 xl:gap-x-8 2xl:gap-x-10 gap-y-6 xs:gap-y-8 sm:gap-y-10 md:gap-y-8 lg:gap-y-10 xl:gap-y-12 2xl:gap-y-14 mt-4 xs:mt-6 sm:mt-8 md:mt-6 lg:mt-8"
+                >
                     {partnerImages.map((image, index) => (
                         <div
                             key={index}
-                            className={`flex items-center justify-center relative group transition-all duration-700 ease-out bg-transparent ${
+                            className={`flex items-center justify-center relative group bg-transparent cursor-pointer ${
                                 isLargerOnMobile(index) ? 'md:transform-none md:scale-100' : ''
                             }`}
                             style={{
@@ -192,40 +194,35 @@ const TogetherWeMadeItHappen: React.FC = () => {
                                 height: 'auto',
                                 aspectRatio: '2.5 / 1',
                                 transitionDelay: `${index * 100}ms`,
-                                // Apply scale based on device and index
                                 transform: isExtraLargeOnDesktop(index)
-                                    ? 'scale(1.5)' // Larger scale for 7th and 10th on all screens
+                                    ? 'scale(1.5)'
                                     : isLargerOnMobile(index)
-                                        ? 'scale(1.3)' // Slightly larger for 6th, 7th, 9th, 10th on mobile
+                                        ? 'scale(1.3)'
                                         : 'scale(1)',
                                 transformOrigin: 'center',
                                 zIndex: isLargerOnMobile(index) || isExtraLargeOnDesktop(index) ? 10 : 1,
                             }}
                         >
-                            {/* Default image - hidden on mobile, visible on lg+ */}
-                            <img
-                                src={image.default || "/placeholder.svg"}
-                                alt={`Partner ${index + 1} default`}
-                                className={`hidden lg:block object-contain transition-all duration-300 group-hover:opacity-0 ${showImages ? 'transform translate-y-0 opacity-100' : 'transform translate-y-8 opacity-0'}`}
-                                style={{
-                                    maxWidth: '90%',
-                                    maxHeight: '90%',
-                                    width: 'auto',
-                                    height: 'auto'
-                                }}
-                            />
-                            {/* Color image - visible on mobile by default, shows on hover for lg+ */}
-                            <img
-                                src={image.color || "/placeholder_color.svg"}
-                                alt={`Partner ${index + 1} color`}
-                                className={`lg:absolute lg:top-1/2 lg:left-1/2 lg:-translate-x-1/2 lg:-translate-y-1/2 object-contain lg:opacity-0 lg:group-hover:opacity-100 transition-all duration-300 ${showImages ? 'transform translate-y-0 opacity-100' : 'transform translate-y-8 opacity-0'}`}
-                                style={{
-                                    maxWidth: '90%',
-                                    maxHeight: '90%',
-                                    width: 'auto',
-                                    height: 'auto'
-                                }}
-                            />
+                            {/* Container for both images with proper positioning */}
+                            <div className="relative w-full h-full flex items-center justify-center">
+                                {/* Default image - hidden on mobile, visible on lg+ */}
+                                <img
+                                    src={image.default || "/placeholder.svg"}
+                                    alt={`Partner ${index + 1} default`}
+                                    className={`hidden lg:block absolute inset-0 m-auto object-contain w-full h-full max-w-[90%] max-h-[90%] transition-opacity duration-300 ease-out group-hover:opacity-0 ${
+                                        showImages ? 'opacity-100' : 'opacity-0'
+                                    }`}
+                                />
+
+                                {/* Color image - visible on mobile, shows on hover for lg+ */}
+                                <img
+                                    src={image.color || "/placeholder_color.svg"}
+                                    alt={`Partner ${index + 1} color`}
+                                    className={`object-contain w-full h-full max-w-[90%] max-h-[90%] transition-opacity duration-300 ease-out lg:absolute lg:inset-0 lg:m-auto ${
+                                        showImages ? 'opacity-100 lg:opacity-0 lg:group-hover:opacity-100' : 'opacity-0'
+                                    }`}
+                                />
+                            </div>
                         </div>
                     ))}
                 </div>

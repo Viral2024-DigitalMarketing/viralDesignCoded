@@ -8,13 +8,14 @@ import { useInView } from "react-intersection-observer";
 const Footer = () => {
     const controls = useAnimation();
     const [ref, inView] = useInView({
-        triggerOnce: true,
-        threshold: 0.9,
+        threshold: 0.9, // Trigger when 90% of the footer is in view
     });
 
     useEffect(() => {
         if (inView) {
             controls.start("animate");
+        } else {
+            controls.start("initial"); // Reset to initial state when out of view
         }
     }, [controls, inView]);
 

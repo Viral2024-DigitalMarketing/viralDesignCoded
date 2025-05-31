@@ -140,7 +140,8 @@ const DesktopJobCard = ({ title, description, responsibilities }: JobCardProps) 
                     alt="Button Icon"
 
                     width={10}  // Decreased width
-                    height={10} // Decreased height
+                    height={10} // Decreased heigh
+                    // t
                     className="w-3 sm:w-4 md:w-5 h-3 sm:h-4 md:h-5 object-contain"
                 />
                 Bug us — let's build.
