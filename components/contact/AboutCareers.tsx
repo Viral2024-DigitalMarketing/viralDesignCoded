@@ -97,7 +97,7 @@ const DesktopJobCard = ({ title, description, responsibilities }: JobCardProps) 
     const router = useRouter();
 
     return (
-        <div className="w-full max-w-[1280px] p-6 lg:p-8 flex flex-col items-start gap-4 lg:gap-6 bg-white rounded-lg shadow-sm mb-8">
+        <div id="carrer" className="w-full max-w-[1280px] p-6 lg:p-8 flex flex-col items-start gap-4 lg:gap-6 bg-white rounded-lg shadow-sm mb-8">
             <h2 className="w-full text-left font-sharp-grotesk text-2xl lg:text-4xl font-light">
                 {title}
             </h2>
@@ -169,7 +169,7 @@ export default function AboutCareers() {
     // Job listings data
     const jobListings: JobListing[] = [
         {
-            title: "Senior Web Developer",
+            title: "Web Developer",
             description: "Build and maintain scalable web applications using modern frameworks and technologies.",
             responsibilities: [
                 "Build responsive web applications using modern frameworks.",
@@ -190,43 +190,12 @@ export default function AboutCareers() {
                 "Collaborate with design and content teams.",
             ],
         },
-        {
-            title: "UX/UI Designer",
-            description: "Design user-centered digital experiences across platforms. Collaborate with design, development, and marketing.",
-            responsibilities: [
-                "Design wireframes, flows, mockups, and prototypes.",
-                "Conduct user research and testing.",
-                "Collaborate on requirements and feasibility.",
-                "Develop UI style guides.",
-                "Follow UI/UX trends.",
-            ],
-        },
-        {
-            title: "Project Manager",
-            description: "Lead digital projects from conception to delivery, ensuring they meet client requirements and deadlines.",
-            responsibilities: [
-                "Manage project scope, timeline, and resources.",
-                "Coordinate between clients and internal teams.",
-                "Monitor project progress and address any blockers.",
-                "Ensure quality delivery of all project components.",
-                "Report on project metrics and KPIs.",
-            ],
-        },
-        {
-            title: "Content Strategist",
-            description: "Develop compelling content strategies that align with business goals and engage target audiences.",
-            responsibilities: [
-                "Create content strategies for various digital channels.",
-                "Develop brand voice and messaging guidelines.",
-                "Oversee content production and quality control.",
-                "Analyze content performance and optimize strategy.",
-                "Stay updated on content trends and best practices.",
-            ],
-        },
+
     ];
 
     return (
-        <section className="bg-[#F3F0F0] text-black py-16 sm:py-20 md:py-24 lg:py-32 px-4 sm:px-6 md:px-10 lg:px-20">
+        <section id="open-roles"
+                 className="bg-[#F3F0F0] text-black py-16 sm:py-20 md:py-24 lg:py-32 px-4 sm:px-6 md:px-10 lg:px-20">
             <div className="container mx-auto">
                 {/* Conditional Heading: "Open Roles" for mobile, full heading and tagline for desktop */}
                 <div className="mb-10 lg:mb-16">
@@ -256,7 +225,9 @@ export default function AboutCareers() {
                         </div>
                         <div className="w-full lg:w-1/2 flex justify-end">
                             <p className="text-black font-sharp-grotesk text-sm md:text-sm lg:text-sm max-w-[500px]">
-                                Growth, innovation, and excellence are our passion. If you're driven and collaborative, join our talented team of digital innovators! We're looking for passionate individuals who are excited about creating exceptional digital experiences.
+                                Growth, innovation, and excellence are our passion. If you're driven and collaborative,
+                                join our talented team of digital innovators! We're looking for passionate individuals
+                                who are excited about creating exceptional digital experiences.
                             </p>
                         </div>
                     </div>

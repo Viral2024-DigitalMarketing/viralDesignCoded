@@ -15,7 +15,7 @@ const DecryptedText: FC<{
     const [displayText, setDisplayText] = useState<string>(text);
 
     // Characters used for scrambling effect
-    const scrambleChars = '!@#$%^&*()_+-=[]{}|;:,.<>?';
+    const scrambleChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*';
 
     useEffect(() => {
         let timer: NodeJS.Timeout;

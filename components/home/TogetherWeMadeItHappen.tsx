@@ -11,8 +11,8 @@ const TogetherWeMadeItHappen: React.FC = () => {
     const sectionRef = useRef<HTMLDivElement>(null);
 
     const partnerImages = [
-        { default: "/images/dec-nor.svg", color: "/images/dec-col.svg" },
-        { default: "/images/sri-nor.svg", color: "/images/sri-col.svg" },
+        { default: "/images/deca-nor.svg", color: "/images/deca-color.svg" },
+        { default: "/images/siri-nor.svg", color: "/images/siri-color.svg" },
         { default: "/images/lyf-nor.svg", color: "/images/lyf-col.svg" },
         { default: "/images/jun-nor.svg", color: "/images/jun-col.svg" },
         { default: "/images/sv-nor.svg", color: "/images/pro-col.svg" },
@@ -200,27 +200,43 @@ const TogetherWeMadeItHappen: React.FC = () => {
                                         ? 'scale(1.3)'
                                         : 'scale(1)',
                                 transformOrigin: 'center',
-                                zIndex: isLargerOnMobile(index) || isExtraLargeOnDesktop(index) ? 10 : 1,
+                                zIndex: isLargerOnMobile(index) || isExtraLargeOnDesktop(index) ? 100 : 50,
                             }}
                         >
                             {/* Container for both images with proper positioning */}
-                            <div className="relative w-full h-full flex items-center justify-center">
-                                {/* Default image - hidden on mobile, visible on lg+ */}
+                            <div className="relative w-full h-full flex items-center justify-center overflow-hidden">
+                                {/* Default image - visible by default on desktop, hidden on mobile */}
                                 <img
                                     src={image.default || "/placeholder.svg"}
                                     alt={`Partner ${index + 1} default`}
-                                    className={`hidden lg:block absolute inset-0 m-auto object-contain w-full h-full max-w-[90%] max-h-[90%] transition-opacity duration-300 ease-out group-hover:opacity-0 ${
-                                        showImages ? 'opacity-100' : 'opacity-0'
+                                    className={`absolute w-full h-full max-w-[90%] max-h-[90%] object-contain transition-all duration-300 ease-in-out ${
+                                        showImages
+                                            ? 'hidden md:block md:opacity-100 md:group-hover:opacity-0 md:group-hover:scale-105'
+                                            : 'opacity-0'
                                     }`}
+                                    style={{
+                                        top: '50%',
+                                        left: '50%',
+                                        transform: 'translate(-50%, -50%)',
+                                        zIndex: 60
+                                    }}
                                 />
 
-                                {/* Color image - visible on mobile, shows on hover for lg+ */}
+                                {/* Color image - visible on mobile, hidden by default on desktop but shows on hover */}
                                 <img
                                     src={image.color || "/placeholder_color.svg"}
                                     alt={`Partner ${index + 1} color`}
-                                    className={`object-contain w-full h-full max-w-[90%] max-h-[90%] transition-opacity duration-300 ease-out lg:absolute lg:inset-0 lg:m-auto ${
-                                        showImages ? 'opacity-100 lg:opacity-0 lg:group-hover:opacity-100' : 'opacity-0'
+                                    className={`absolute w-full h-full max-w-[90%] max-h-[90%] object-contain transition-all duration-300 ease-in-out ${
+                                        showImages
+                                            ? 'opacity-100 md:opacity-0 md:group-hover:opacity-100 md:group-hover:scale-105'
+                                            : 'opacity-0'
                                     }`}
+                                    style={{
+                                        top: '50%',
+                                        left: '50%',
+                                        transform: 'translate(-50%, -50%)',
+                                        zIndex: 80
+                                    }}
                                 />
                             </div>
                         </div>

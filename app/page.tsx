@@ -8,20 +8,27 @@ import JoinOurTeamSection from '@/components/home/JoinOurTeamSection';
 import PartnersSection from "@/components/home/TogetherWeMadeItHappen";
 import ProcessSection from "@/components/home/ProcessSection";
 
+
 export const metadata: Metadata = {
-  title: 'Digital Agency | Home',
-  description: 'Transform your business with our digital agency services',
+    title: 'ViralBug - Digital Marketing Agency | Transform Your Business Online',
+    description: 'Transform your business with our digital agency services. We help brands go viral and achieve measurable results through innovative digital marketing strategies.',
+    icons: {
+        icon: '/images/log.svg', // Replace with your logo image path
+        shortcut: '/favicon-16x16.png',
+        apple: '/apple-touch-icon.png',
+    },
 };
 
+
 export default function Home() {
-  return (
-    <>
-      <HeroSection />
-      <VisibilityToConversion />
-      <ProcessSection />
-        <TogetherWeMadeItHappen />
-      <CTASection />
-      <JoinOurTeamSection />
-    </>
-  );
+    return (
+        <>
+            <HeroSection />
+            <VisibilityToConversion />
+            <ProcessSection />
+            <TogetherWeMadeItHappen />
+            <CTASection />
+            <JoinOurTeamSection />
+        </>
+    );
 }

@@ -225,7 +225,7 @@ export default function ContactHero() {
                                         className="w-3 sm:w-4 md:w-5 h-3 sm:h-4 md:h-5 object-contain"
                                     />
 
-                                    Bug us — let's build.
+                                    Bug us — let' build.
                                 </Button>
                             </div>
                         </form>

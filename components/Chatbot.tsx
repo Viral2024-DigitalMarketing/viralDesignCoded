@@ -178,9 +178,9 @@ const Chatbot = () => {
                 </div>
             </div>
 
-            {/* Mobile View - Simple Spider Button with Full Image */}
+            {/* Mobile View - Simple Spider Button with Professional Float Animation */}
             <div className="block md:hidden">
-                <div className="fixed bottom-6 right-6 z-[9999] chatbot-button pointer-events-auto">
+                <div className="fixed bottom-6 right-6 z-[9999] chatbot-button pointer-events-auto mobile-float-animation">
                     <button
                         onClick={() => setIsOpen(!isOpen)}
                         className="relative w-14 h-14 rounded-full shadow-xl hover:scale-110 transition-all duration-300 border-2 border-red-400 overflow-hidden"
@@ -341,6 +341,15 @@ const Chatbot = () => {
                     to { opacity: 1; transform: translateY(0); }
                 }
 
+                @keyframes mobile-float {
+                    0%, 100% {
+                        transform: translateY(0px);
+                    }
+                    50% {
+                        transform: translateY(-8px);
+                    }
+                }
+
                 .animate-fade-in {
                     animation: fade-in 0.5s ease-out forwards;
                 }
@@ -348,6 +357,10 @@ const Chatbot = () => {
                 .spider-container.swing { animation: swing 4s ease-in-out infinite; }
                 .spider-container.wiggle { animation: wiggle 2s ease-in-out infinite; }
                 .spider-container.bounce { animation: bounce 2s ease-in-out infinite; }
+
+                .mobile-float-animation {
+                    animation: mobile-float 3s ease-in-out infinite;
+                }
             `}</style>
         </div>
     );

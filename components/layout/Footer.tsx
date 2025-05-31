@@ -56,25 +56,27 @@ const Footer = () => {
                                     text === "Home"
                                         ? "/"
                                         : text === "Careers"
-                                            ? "/contact"
-                                            : `/${text.toLowerCase().replace(" ", "")}`
+                                            ? "/contact#open-roles"  // Target the "Open Roles" section in the contact page
+
+                                                : `/${text.toLowerCase().replace(" ", "")}`
                                 }
                                 className="text-gray-400 hover:text-white transition-colors"
                             >
-                                <span className="text-[9px] xs:text-[8px] sm:text-[12px] md:text-sm lg:text-lg xl:text-xl whitespace-nowrap">
-                                    {text}
-                                </span>
+            <span className="text-[9px] xs:text-[8px] sm:text-[12px] md:text-sm lg:text-lg xl:text-xl whitespace-nowrap">
+                {text}
+            </span>
                             </Link>
                         ))}
                     </div>
 
+
                     {/* Right Side - Email and Social Links */}
                     <div className="flex flex-row flex-nowrap items-center gap-1 xs:gap-1.5 sm:gap-2 md:gap-4 lg:gap-5 max-w-[52%] xs:max-w-[50%] mt-1">
                         <Link
-                            href="mailto:hello@viralbug.in"
+                            href="mailto:viralbug.hyd@gmail.com"
                             className="text-red-600 hover:text-white transition-colors text-[9px] xs:text-[8px] sm:text-[12px] md:text-sm lg:text-lg whitespace-nowrap"
                         >
-                            hello@viralbug.in
+                            viralbug.hyd@gmail.com
                         </Link>
                         <Link
                             href="https://instagram.com"
