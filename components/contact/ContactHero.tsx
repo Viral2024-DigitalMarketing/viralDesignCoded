@@ -5,6 +5,7 @@ import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import emailjs from "emailjs-com"; // Import emailjs-com
 
 export default function ContactHero() {
     const controls = useAnimation();
@@ -21,15 +22,57 @@ export default function ContactHero() {
     });
 
     const [focusedField, setFocusedField] = useState<string>("");
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [submitStatus, setSubmitStatus] = useState<{
+        type: 'success' | 'error' | null;
+        message: string;
+    }>({ type: null, message: '' });
 
     const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
         setFormData((prev) => ({ ...prev, [name]: value }));
+        // Clear any previous status messages when user starts typing
+        if (submitStatus.type) {
+            setSubmitStatus({ type: null, message: '' });
+        }
     };
 
-    const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        console.log("Form submitted:", formData);
+        setIsSubmitting(true);
+        setSubmitStatus({ type: null, message: '' });
+
+        try {
+            // Send email with EmailJS using your provided credentials
+            const result = await emailjs.sendForm(
+                "service_xz71or6",      // Your service ID
+                "template_uhtgeye",     // Your template ID
+                e.target as HTMLFormElement, // The form element
+                "aZVryBVZDdFsdOwxf"     // Your public key
+            );
+
+            console.log("Email sent successfully:", result.text);
+
+            // Show success message
+            setSubmitStatus({
+                type: 'success',
+                message: 'Thank you! Your message has been sent successfully. We\'ll get back to you soon!'
+            });
+
+            // Reset the form after successful submission
+            setFormData({ company: "", email: "", phone: "", message: "" });
+
+        } catch (error: any) {
+            console.error("Error sending email:", error);
+
+            // Show error message
+            setSubmitStatus({
+                type: 'error',
+                message: 'Oops! Something went wrong. Please try again or contact us directly.'
+            });
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     const handleFocus = (fieldName: string) => {
@@ -45,6 +88,16 @@ export default function ContactHero() {
             controls.start("visible");
         }
     }, [controls, inView]);
+
+    // Auto-hide status messages after 5 seconds
+    useEffect(() => {
+        if (submitStatus.type) {
+            const timer = setTimeout(() => {
+                setSubmitStatus({ type: null, message: '' });
+            }, 5000);
+            return () => clearTimeout(timer);
+        }
+    }, [submitStatus.type]);
 
     const containerVariants = {
         hidden: { opacity: 0 },
@@ -94,21 +147,13 @@ export default function ContactHero() {
                         >
                             {/* Mobile view: Four lines for xs and sm */}
                             <span className="block xs:block sm:block md:hidden leading-none ml-2"
-                                  style={{lineHeight: "1", marginBottom: "0px", paddingBottom: "0px"}}>
-                                Hear the
-                            </span>
+                                  style={{lineHeight: "1", marginBottom: "0px", paddingBottom: "0px"}}>Hear the</span>
                             <span className="block xs:block sm:block md:hidden leading-none ml-2"
-                                  style={{lineHeight: "1", marginBottom: "0px", paddingBottom: "0px"}}>
-                                Buzz.
-                            </span>
+                                  style={{lineHeight: "1", marginBottom: "0px", paddingBottom: "0px"}}>Buzz.</span>
                             <span className="block xs:block sm:block md:hidden leading-none ml-2"
-                                  style={{lineHeight: "1", marginBottom: "0px", paddingBottom: "0px"}}>
-                                Build
-                            </span>
+                                  style={{lineHeight: "1", marginBottom: "0px", paddingBottom: "0px"}}>Build</span>
                             <span className="block xs:block sm:block md:hidden leading-none ml-2"
-                                  style={{lineHeight: "1", marginBottom: "0px", paddingBottom: "0px"}}>
-                                the Brand.
-                            </span>
+                                  style={{lineHeight: "1", marginBottom: "0px", paddingBottom: "0px"}}>the Brand.</span>
 
                             {/* Desktop view: Two lines */}
                             <span className="hidden md:block" style={{lineHeight: "0.8"}}>
@@ -147,6 +192,17 @@ export default function ContactHero() {
                                 minHeight: "280px",
                             }}
                         >
+                            {/* Status Message */}
+                            {submitStatus.type && (
+                                <div className={`w-full p-3 rounded mb-4 text-sm ${
+                                    submitStatus.type === 'success'
+                                        ? 'bg-green-900/20 border border-green-500 text-green-400'
+                                        : 'bg-red-900/20 border border-red-500 text-red-400'
+                                }`}>
+                                    {submitStatus.message}
+                                </div>
+                            )}
+
                             <div className="space-y-4 w-full">
                                 <div className="w-full">
                                     <label className="block text-white text-sm lg:text-base mb-2 text-left">Company Name</label>
@@ -160,6 +216,8 @@ export default function ContactHero() {
                                         placeholder="Enter your company name"
                                         className="w-full p-2 bg-transparent text-white text-sm outline-none transition-all duration-300 border-b border-white"
                                         style={{ textAlign: "left" }}
+                                        disabled={isSubmitting}
+                                        required
                                     />
                                 </div>
 
@@ -175,6 +233,8 @@ export default function ContactHero() {
                                         placeholder="Enter your email"
                                         className="w-full p-2 bg-transparent text-white text-sm outline-none transition-all duration-300 border-b border-white"
                                         style={{ textAlign: "left" }}
+                                        disabled={isSubmitting}
+                                        required
                                     />
                                 </div>
 
@@ -190,6 +250,8 @@ export default function ContactHero() {
                                         placeholder="Enter your phone number"
                                         className="w-full p-2 bg-transparent text-white text-sm outline-none transition-all duration-300 border-b border-white"
                                         style={{ textAlign: "left" }}
+                                        disabled={isSubmitting}
+                                        required
                                     />
                                 </div>
 
@@ -204,6 +266,8 @@ export default function ContactHero() {
                                         placeholder="Tell us more about your story"
                                         className="w-full p-2 bg-transparent text-white text-sm h-16 outline-none resize-none transition-all duration-300 border-b border-white"
                                         style={{ textAlign: "left" }}
+                                        disabled={isSubmitting}
+                                        required
                                     />
                                 </div>
                             </div>
@@ -211,21 +275,35 @@ export default function ContactHero() {
                             <div className="w-full mt-6 flex justify-start items-start">
                                 <Button
                                     type="submit"
-                                    className="rounded-none bg-white text-[#E30000] hover:bg-gray-100 font-bold tracking-tighter flex items-center gap-2 text-xs sm:text-sm md:text-base lg:text-lg px-4 py-2 sm:px-4 sm:py-2 md:px-5 md:py-2 lg:px-5 lg:py-2"
+                                    disabled={isSubmitting}
+                                    className={`rounded-none font-bold tracking-tighter flex items-center gap-2 text-xs sm:text-sm md:text-base lg:text-lg px-4 py-2 sm:px-4 sm:py-2 md:px-5 md:py-2 lg:px-5 lg:py-2 transition-all duration-300 ${
+                                        isSubmitting
+                                            ? 'bg-gray-400 text-gray-700 cursor-not-allowed'
+                                            : 'bg-white text-[#E30000] hover:bg-gray-100'
+                                    }`}
                                     style={{
                                         fontFamily: "Helvetica",
                                         height: "auto",
                                     }}
                                 >
-                                    <Image
-                                        src="/images/log.svg"
-                                        alt="Button Icon"
-                                        width={10}  // Decreased width
-                                        height={10} // Decreased height
-                                        className="w-3 sm:w-4 md:w-5 h-3 sm:h-4 md:h-5 object-contain"
-                                    />
+                                    {!isSubmitting && (
+                                        <Image
+                                            src="/images/log.svg"
+                                            alt="Button Icon"
+                                            width={10}
+                                            height={10}
+                                            className="w-3 sm:w-4 md:w-5 h-3 sm:h-4 md:h-5 object-contain"
+                                        />
+                                    )}
 
-                                    Bug us — let' build.
+                                    {isSubmitting ? (
+                                        <>
+                                            <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-gray-700"></div>
+                                            Sending...
+                                        </>
+                                    ) : (
+                                        "Bug us — let's build."
+                                    )}
                                 </Button>
                             </div>
                         </form>
