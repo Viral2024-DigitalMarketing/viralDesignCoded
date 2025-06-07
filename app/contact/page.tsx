@@ -1,13 +1,12 @@
 import { Metadata } from 'next';
 import ContactHero from '@/components/contact/ContactHero';
 import AboutCareers from '@/components/contact/AboutCareers';
-import ContactForm from '@/components/contact/ContactForm';
+
 
 export const metadata: Metadata = {
-  title: 'Contact Us | Digital Agency',
-  description: 'Get in touch with our team for your digital transformation needs',
+    title: 'Contact Us |ViralBug Digital Marketing',
+    description: 'Get in touch with our expert team to discuss your digital transformation needs and how we can help your business grow online.',
 };
-
 export default function ContactPage() {
   return (
     <>

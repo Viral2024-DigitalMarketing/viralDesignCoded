@@ -2,7 +2,30 @@
 
 import { useState, useEffect } from 'react';
 import { X, MessageCircle, Send } from 'lucide-react';
-import { KnowledgeItem, knowledgeBase } from './knowledgeBase';
+
+interface KnowledgeItem {
+    keywords: string[];
+    response: string;
+}
+
+const knowledgeBase: KnowledgeItem[] = [
+    {
+        keywords: ['hello', 'hi', 'hey', 'greetings'],
+        response: "Hey there! 👋 I'm Viral Bug, your digital marketing buddy! Ready to make your brand go viral?"
+    },
+    {
+        keywords: ['services', 'what do you do', 'help'],
+        response: "We specialize in digital marketing magic! 🚀 From social media campaigns to SEO wizardry, we help businesses catch the digital wave!"
+    },
+    {
+        keywords: ['pricing', 'cost', 'price', 'money'],
+        response: "Our pricing is as flexible as a spider's web! 💰 Let's discuss your needs and create a custom package that fits your budget."
+    },
+    {
+        keywords: ['contact', 'reach', 'phone', 'email'],
+        response: "Ready to connect? 📞 You can reach us through our website contact form or give us a call. We're always here to help!"
+    }
+];
 
 interface Message {
     from: 'user' | 'bot';
@@ -17,7 +40,7 @@ const Chatbot = () => {
     const [isHovering, setIsHovering] = useState(false);
     const [showWelcomePopup, setShowWelcomePopup] = useState(false);
     const [spiderAnimation, setSpiderAnimation] = useState('swing');
-    const [bugImagePath] = useState('/images/bug_robo.jpg'); // Update this path to your actual image
+    const [bugImagePath] = useState('/images/bug_robo.webp'); // Update this path to your actual image
 
     const getBotResponse = (input: string): string => {
         const text = input.toLowerCase();
@@ -39,13 +62,13 @@ const Chatbot = () => {
         setInput('');
     };
 
-    // Show welcome popup when component mounts
+    // Show welcome popup when component mounts - EXTENDED TIMING
     useEffect(() => {
         const timer = setTimeout(() => {
             setShowWelcomePopup(true);
-            // Auto hide popup after 3 seconds
-            setTimeout(() => setShowWelcomePopup(false), 3000);
-        }, 1000);
+            // Extended popup display time from 3 seconds to 8 seconds
+            setTimeout(() => setShowWelcomePopup(false), 8000);
+        }, 2000); // Also increased initial delay from 1 second to 2 seconds
         return () => clearTimeout(timer);
     }, []);
 
@@ -96,7 +119,7 @@ const Chatbot = () => {
         <div className="fixed inset-0 pointer-events-none z-[9990]">
             {/* Simple Creative Popup - Desktop */}
             {showWelcomePopup && (
-                <div className="fixed bottom-56 right-2 z-[10001] pointer-events-auto animate-fade-in hidden md:block">
+                <div className="fixed bottom-56 right-6 z-[10001] pointer-events-auto animate-fade-in hidden md:block">
                     <div className="bg-black border-2 border-red-500 rounded-xl p-4 shadow-xl max-w-xs">
                         <div className="flex items-center gap-3">
                             <div className="text-2xl">💬</div>
@@ -113,7 +136,7 @@ const Chatbot = () => {
 
             {/* Simple Creative Popup - Mobile */}
             {showWelcomePopup && (
-                <div className="fixed bottom-32 right-2 z-[10001] pointer-events-auto animate-fade-in block md:hidden">
+                <div className="fixed bottom-32 right-6 z-[10001] pointer-events-auto animate-fade-in block md:hidden">
                     <div className="bg-black border-2 border-red-500 rounded-xl p-3 shadow-xl max-w-xs">
                         <div className="flex items-center gap-2">
                             <div className="text-xl">💬</div>
@@ -131,7 +154,7 @@ const Chatbot = () => {
             {/* Desktop View - Thin to Thick Web Line and Spider */}
             <div className="hidden md:block">
                 {/* Gradual Thickening Web Line */}
-                <div className="fixed top-0 right-12 z-[9999] pointer-events-none">
+                <div className="fixed top-0 right-16 z-[9999] pointer-events-none">
                     <div
                         className="web-line relative"
                         style={{
@@ -205,7 +228,7 @@ const Chatbot = () => {
             {/* Simple Clean Chat Window */}
             {isOpen && (
                 <div
-                    className="fixed bottom-28 w-[380px] h-[500px] shadow-2xl rounded-2xl flex flex-col z-[10000] chatbot-container pointer-events-auto md:right-6 right-4 overflow-hidden border-2 border-red-500 bg-black"
+                    className="fixed bottom-28 w-[380px] h-[500px] shadow-2xl rounded-2xl flex flex-col z-[10000] chatbot-container pointer-events-auto md:right-8 right-4 overflow-hidden border-2 border-red-500 bg-black"
                     onMouseEnter={() => setIsHovering(true)}
                     onMouseLeave={() => setIsHovering(false)}
                     style={{
@@ -252,7 +275,7 @@ const Chatbot = () => {
                             <div className="text-center py-8">
                                 <div className="w-16 h-16 bg-red-600 rounded-full mx-auto mb-4 flex items-center justify-center overflow-hidden">
                                     <img
-                                        src="/images/lpg.svg"
+                                        src="/images/log.svg"
                                         alt="Company Logo"
                                         className="w-12 h-12 object-contain"
                                         onError={(e) => {

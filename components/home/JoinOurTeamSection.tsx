@@ -50,7 +50,7 @@ export default function JoinOurTeamSection() {
 
 
                 {/* Right Roles Info as Link */}
-                <Link href="/contact" className="flex items-center gap-3 m-0 p-0 group cursor-pointer">
+                <Link href="/contact#open-roles" className="flex items-center gap-3 m-0 p-0 group cursor-pointer">
           <span
               className="
               uppercase font-helvetica font-normal group-hover:underline

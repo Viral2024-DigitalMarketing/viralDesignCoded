@@ -11,8 +11,8 @@ const TogetherWeMadeItHappen: React.FC = () => {
     const sectionRef = useRef<HTMLDivElement>(null);
 
     const partnerImages = [
-        { default: "/images/deca-nor.svg", color: "/images/deca-color.svg" },
-        { default: "/images/siri-nor.svg", color: "/images/siri-color.svg" },
+        { default: "/images/deca-nor.svg", color: "/images/deca-color.webp" },
+        { default: "/images/sri-nor.svg", color: "/images/sri-col.svg" },
         { default: "/images/lyf-nor.svg", color: "/images/lyf-col.svg" },
         { default: "/images/jun-nor.svg", color: "/images/jun-col.svg" },
         { default: "/images/sv-nor.svg", color: "/images/pro-col.svg" },

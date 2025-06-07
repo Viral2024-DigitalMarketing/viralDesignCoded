@@ -6,8 +6,8 @@ import TogetherWeMadeItHappen from "@/components/home/TogetherWeMadeItHappen";
 import CTASection from "@/components/home/CTASection";
 
 export const metadata: Metadata = {
-  title: 'Our Services | Digital Agency',
-  description: 'Explore our comprehensive range of digital services designed to grow your business',
+    title: 'Our Services | ViralBug Digital Marketing',
+    description: 'Explore a wide range of digital marketing services designed to grow your business and boost your online presence.',
 };
 
 export default function ServicesPage() {

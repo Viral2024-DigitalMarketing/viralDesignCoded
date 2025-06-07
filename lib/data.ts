@@ -14,10 +14,10 @@ export const blogPosts: BlogPost[] = [
     slug: "digital-marketing-trends-2025",
     title: "Meta Algorithm Decoded",
     date: "April 15, 2025",
-    image: "/images/fi.svg", // Blog page image
+    image: "/images/fi.webp", // Blog page image
     excerpt: "Decode the latest Meta algorithm updates and maximize your reach.",
-    descImage1: "/images/gro.svg", // Unique image for description section 1
-    descImage2: "/images/ads.svg", // Unique image for description section 2
+    descImage1: "/images/gro.webp", // Unique image for description section 1
+    descImage2: "/images/ads.webp", // Unique image for description section 2
     content: [
       "As we move further into 2025, the digital marketing landscape continues to evolve at a rapid pace. Businesses that stay ahead of these trends will have a significant competitive advantage in capturing audience attention and driving growth.",
       "Artificial Intelligence is no longer just a buzzword but a fundamental tool reshaping how marketers understand and engage with their audiences. AI-powered analytics platforms now offer unprecedented insights into consumer behavior, allowing for hyper-personalized marketing strategies that deliver the right message to the right person at exactly the right moment.",
@@ -32,10 +32,10 @@ export const blogPosts: BlogPost[] = [
     slug: "ux-design-principles-2025",
     title: "Boosting ROI with Marketing",
     date: "March 22, 2025",
-    image: "/images/se.svg", // Blog page image
+    image: "/images/se.webp", // Blog page image
     excerpt: "Track conversions, clicks, and ROI.",
-    descImage1: "/images/digi.svg", // Unique image for description section 1
-    descImage2: "/images/hyd.svg", // Unique image for description section 2
+    descImage1: "/images/digi.webp", // Unique image for description section 1
+    descImage2: "/images/hyd.webp", // Unique image for description section 2
     content: [
       "User Experience (UX) design has evolved from a nice-to-have to a critical component of any successful digital product. As user expectations continue to rise in 2025, implementing these essential UX design principles can help your business create digital experiences that not only attract users but convert and retain them.",
       "Accessibility has moved beyond compliance to become a cornerstone of good design. Inclusive design practices ensure your website is usable by people of all abilities, expanding your audience reach and demonstrating social responsibility.",
@@ -50,10 +50,10 @@ export const blogPosts: BlogPost[] = [
     slug: "ecommerce-optimization-strategies",
     title: "Hyderabad's Digital Surge",
     date: "February 8, 2025",
-    image: "/images/th.svg", // Blog page image
+    image: "/images/th.webp", // Blog page image
     excerpt: "A Local Perspective.",
-    descImage1: "/images/roi.svg", // Unique image for description section 1
-    descImage2: "/images/sea.svg", // Unique image for description section 2
+    descImage1: "/images/roi.webp", // Unique image for description section 1
+    descImage2: "/images/sea.webp", // Unique image for description section 2
     content: [
       "In the competitive world of e-commerce, optimization is an ongoing process that can significantly impact your bottom line. The most successful online retailers understand that small improvements across the customer journey can lead to substantial increases in conversion rates and average order values.",
       "Product page optimization begins with high-quality, zoomable images showing products from multiple angles. Comprehensive descriptions that address common questions, clear pricing information, and authentic customer reviews build confidence and reduce purchase anxiety.",
@@ -68,10 +68,10 @@ export const blogPosts: BlogPost[] = [
     slug: "content-marketing-strategy",
     title: "Social Media Mastery",
     date: "January 12, 2025",
-    image: "/images/last.svg", // Blog page image
+    image: "/images/last.webp", // Blog page image
     excerpt: "Brands now have the power to reach millions with the click of a button.",
-    descImage1: "/images/soc-med.svg", // Unique image for description section 1
-    descImage2: "/images/enga.svg", // Unique image for description section 2
+    descImage1: "/images/soc-med.webp", // Unique image for description section 1
+    descImage2: "/images/enga.webp", // Unique image for description section 2
     content: [
       "Content marketing continues to be a powerful tool for building brand awareness, establishing authority, and driving conversions. However, as content creation tools become more accessible and the volume of content increases, developing a strategic approach is essential for standing out and delivering meaningful ROI.",
       "Audience-centric content planning starts with developing detailed buyer personas and mapping content to each stage of the customer journey. This foundation ensures that your content addresses specific pain points and questions at the right time, moving prospects closer to purchase decisions.",
@@ -98,13 +98,13 @@ export const caseStudies = [
     services: ['Digital Marketing', 'Content Strategy', 'Customer Targeting', 'Analytics'],
     summary: 'A digital marketing campaign that brewed success for Roast n Toast’s premium coffee brand, achieving 64.2% more reach and 62.2% higher engagement.',
     videos: [
-      '/videos/fir-vid.mp4',
-      '/videos/sec-vid.mp4',
-      '/videos/thir-vid.mp4',
+      '/videos/fir-vid.webm',
+      '/videos/sec-vid.webm',
+      '/videos/thir-vid.webm',
     ],
-    image1: '/images/music.svg',
-    image2: '/images/jui.svg',
-    image3: '/images/coffee-campaign.svg',
+    image1: '/images/music.webp',
+    image2: '/images/jui.webp',
+    image3: '/images/coffee-campaign.webp',
 
     challenge: [
       'Roast n Toast needed to expand their market reach and boost engagement while maintaining exceptional cost-efficiency.',
@@ -137,12 +137,12 @@ export const caseStudies = [
     services: ['Digital Marketing', 'Content Strategy', 'Patient Journey Optimization', 'Reputation Management'],
     summary: 'A digital transformation campaign that boosted Srikara Hospitals’ online presence, increasing appointment bookings by 73% and patient satisfaction by 37%.',
     videos: [
-      '/videos/first-sri.mp4',
-      '/videos/sri-sec.mp4',
-      '/videos/srik.mp4',
-      '/videos/sri-four.mp4',
+      '/videos/first-sri.webm',
+      '/videos/sri-sec.webm',
+      '/videos/srik.webm',
+      '/videos/sri-four.webm',
     ],
-    image2: '/images/sri-img.jpg',
+    image2: '/images/sri-img.webp',
 
 
     challenge: [

@@ -16,7 +16,7 @@ const roastStrategyCards = [
       'expand reach, boost engagement, and do it all with exceptional cost-efficiency. Over just 90 days, we achieved',
       'a <span style="font-weight: bold">64.2%</span> increase in reach & <span style="font-weight: bold">62.2%</span> boost in engagement, while spending <span style="font-weight: bold">97%</span> less than typical campaigns.',
     ],
-    imageSrc: '/images/first.svg',
+    imageSrc: '/images/first.webp',
   },
   {
     title: 'Pouring \n' + 'Measurable Results:',
@@ -27,7 +27,7 @@ const roastStrategyCards = [
       'We gained 438 new followers, bringing the total to 5,700.',
       '9.3k accounts engaged with our content, showing a 62.2% increase over previous months.',
     ],
-    imageSrc: '/images/second.svg',
+    imageSrc: '/images/second.webp',
   },
   {
     title: 'Our secret? \n' + 'We crafted smart ',
@@ -36,7 +36,7 @@ const roastStrategyCards = [
       "We focused on organic growth, leveraging engaging Reels, customer testimonials, and local influencer partnerships.",
       "We tapped into community voices with User-Generated Content (UGC), building trust and boosting brand visibility.",
     ],
-    imageSrc: '/images/third.svg',
+    imageSrc: '/images/third.webp',
   },
   {
     title: 'Blending \n' + 'Strategy',
@@ -44,7 +44,7 @@ const roastStrategyCards = [
       "Our strategy didn't just focus on visibility; it was about meaningful connection.",
       "Our campaign for Roast n Toast proved that with the right strategy and a dash of creativity, you can break records without breaking the bank.",
     ],
-    imageSrc: '/images/fourth.svg',
+    imageSrc: '/images/fourth.webp',
   },
 ];
 
@@ -59,7 +59,7 @@ const srikaraStrategyCards = [
       'Our mission: to elevate brand awareness and reinforce patient trust through meaningful connections.',
     ],
 
-    imageSrc: '/images/sf.svg',
+    imageSrc: '/images/sf.webp',
   },
 
   {
@@ -69,7 +69,7 @@ const srikaraStrategyCards = [
       "Engagement rose 39.1%. Strong organic discovery: 99.5% non-follower reach.",
       "Visibility increased 40.3% to 130K unique accounts; 700 new followers (47.9% increase); 39.1% engagement rise."
     ],
-    "imageSrc": "/images/ss.svg"
+    "imageSrc": "/images/ss.webp"
   },
   {
     "title": "Reviving Organic Growth",
@@ -78,7 +78,7 @@ const srikaraStrategyCards = [
       "We spotlighted doctors, shared patient testimonials, and ran interactive Q&A sessions.",
       "We also expanded visibility through well-timed reels and community-focused storytelling."
     ],
-    "imageSrc": "/images/st.svg"
+    "imageSrc": "/images/st.webp"
   },
   {
     "title": "Administering Strategy with Precision",
@@ -89,7 +89,7 @@ const srikaraStrategyCards = [
       "Experimented with reels, stories, and posts.",
       "Focused on quality content to build trust."
     ],
-    "imageSrc": "/images/sfiv.svg"
+    "imageSrc": "/images/sfiv.webp"
   },
   {
     "title": "Prescribing the Future",
@@ -97,7 +97,7 @@ const srikaraStrategyCards = [
       "Our Roadmap for Srikara Hospitals:",
       "<ul><li>Continue doctor spotlights and Q&As.</li><li>Expand into video content.</li><li>Launch testimonial content.</li></ul>"
     ],
-    "imageSrc": "/images/sl.svg"
+    "imageSrc": "/images/sl.webp"
   },
 ];
 

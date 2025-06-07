@@ -3,8 +3,9 @@ import BlogHero from '@/components/blog/BlogHero';
 import BlogGrid from '@/components/blog/BlogGrid';
 
 export const metadata: Metadata = {
-  title: 'Blog | Digital Agency',
-  description: 'Insights, trends, and tips on digital marketing and web development',
+  title: 'Blog | ViralBug Digital Marketing',
+    description: 'Stay updated with the latest insights, trends, and tips in digital marketing, SEO, and web development.'
+
 };
 
 export default function BlogPage() {
