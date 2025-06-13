@@ -79,13 +79,13 @@ const TogetherWeMadeItHappen: React.FC = () => {
                                         : 'transform translate-y-12 opacity-0'
                                 }`}
                             >
-                                <h1
+                                <h2
                                     className="font-helvetica font-bold text-[1.125rem] xs:text-[1.25rem] sm:text-[1.5rem] tracking-tight leading-[1.2] text-left"
                                     style={{ color: isWhiteBackground ? "#000000" : "#FFFFFF" }}
                                 >
                                     <span className="block">Together,</span>
                                     <span className="block whitespace-nowrap">We've Made It Happen</span>
-                                </h1>
+                                </h2>
                             </div>
 
                             {/* Description - positioned at the level of "Happen" and aligned right */}
