@@ -207,7 +207,7 @@ export default function AboutCareers() {
 
                     <div className="hidden lg:flex flex-col lg:flex-row justify-between items-start lg:items-end">
                         <div className="w-full lg:w-1/2">
-                            <h1
+                            <h2
                                 style={{
                                     color: '#000000',
                                     fontFamily: 'Helvetica',
@@ -221,7 +221,7 @@ export default function AboutCareers() {
                                 className="mb-6 lg:mb-0"
                             >
                                 Join The Tribe!
-                            </h1>
+                            </h2>
                         </div>
                         <div className="w-full lg:w-1/2 flex justify-end">
                             <p className="text-black font-sharp-grotesk text-sm md:text-sm lg:text-sm max-w-[500px]">
