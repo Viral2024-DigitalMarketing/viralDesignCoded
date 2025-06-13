@@ -200,9 +200,9 @@ export default function AboutCareers() {
                 {/* Conditional Heading: "Open Roles" for mobile, full heading and tagline for desktop */}
                 <div className="mb-10 lg:mb-16">
                     <div className="lg:hidden">
-                        <h1 className="font-helvetica font-bold text-4xl sm:text-5xl md:text-6xl leading-tight tracking-tight mb-6">
+                        <h2 className="font-helvetica font-bold text-4xl sm:text-5xl md:text-6xl leading-tight tracking-tight mb-6">
                             Open Roles
-                        </h1>
+                        </h2>
                     </div>
 
                     <div className="hidden lg:flex flex-col lg:flex-row justify-between items-start lg:items-end">
