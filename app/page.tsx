@@ -11,7 +11,7 @@ import ProcessSection from "@/components/home/ProcessSection";
 
 export const metadata: Metadata = {
     title: 'ViralBug | Digital Marketing Agency for Business Growth',
-    description: 'Transform your business with our digital agency services. We help brands go viral and achieve measurable results through innovative digital marketing strategies.',
+    description: 'Get more leads, sales & growth with ViralBug – your trusted digital marketing agency for SEO, ads & branding.',
     icons: {
         icon: '/images/log.svg', // Replace with your logo image path
         shortcut: '/favicon-16x16.png',
