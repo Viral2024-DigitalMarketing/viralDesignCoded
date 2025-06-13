@@ -8,17 +8,15 @@ import JoinOurTeamSection from '@/components/home/JoinOurTeamSection';
 import PartnersSection from "@/components/home/TogetherWeMadeItHappen";
 import ProcessSection from "@/components/home/ProcessSection";
 
-
 export const metadata: Metadata = {
     title: 'ViralBug | Digital Marketing Agency for Business Growth',
-    description: 'Get more leads, sales & growth with ViralBug – your trusted digital marketing agency for SEO, ads & branding.',
+    description: 'Get more leads, sales & growth with ViralBug – your trusted digital marketing agency. We help brands go viral and achieve results through SEO, ads & innovative strategies.',
     icons: {
-        icon: '/images/log.svg', // Replace with your logo image path
+        icon: '/images/log.svg',
         shortcut: '/favicon-16x16.png',
         apple: '/apple-touch-icon.png',
     },
 };
-
 
 export default function Home() {
     return (

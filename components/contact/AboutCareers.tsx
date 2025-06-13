@@ -169,7 +169,7 @@ export default function AboutCareers() {
     // Job listings data
     const jobListings: JobListing[] = [
         {
-            title: "Web Developer",
+            title: "Mobile Developer",
             description: "Build and maintain scalable web applications using modern frameworks and technologies.",
             responsibilities: [
                 "Build responsive web applications using modern frameworks.",
