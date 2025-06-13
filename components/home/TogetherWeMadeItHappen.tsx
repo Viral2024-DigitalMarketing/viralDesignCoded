@@ -140,7 +140,7 @@ const TogetherWeMadeItHappen: React.FC = () => {
                                     : 'transform translate-y-16 opacity-0'
                             }`}
                         >
-                            <h1
+                            <h2
                                 className="font-helvetica font-bold text-4xl md:text-5xl lg:text-[4.5rem] xl:text-[5rem] 2xl:text-[5.5rem] 3xl:text-[6rem] tracking-tight leading-[1.1] md:leading-[1.05] lg:leading-[1.05] xl:leading-[1.05] 2xl:leading-[1.05] 3xl:leading-[1.05]"
                                 style={{ color: isWhiteBackground ? "#000000" : "#FFFFFF" }}
                             >
@@ -159,7 +159,7 @@ const TogetherWeMadeItHappen: React.FC = () => {
                                     }}
                                 />
                                 <span className="block">We've Made It Happen</span>
-                            </h1>
+                            </h2>
                         </div>
                         <div
                             className={`w-1/3 mt-28 md:ml-auto lg:ml-auto xl:ml-auto md:w-1/4 lg:w-1/4 xl:w-1/4 2xl:w-1/5 3xl:w-1/5 transition-all duration-800 delay-200 ease-out ${
