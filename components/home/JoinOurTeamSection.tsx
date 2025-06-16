@@ -64,7 +64,7 @@ export default function JoinOurTeamSection() {
                   transition: 'color 0.6s ease',
               }}
           >
-            3 Open Roles
+            4 Open Roles
           </span>
                     <ArrowRight
                         className="

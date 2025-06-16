@@ -190,6 +190,28 @@ export default function AboutCareers() {
                 "Collaborate with design and content teams.",
             ],
         },
+        {
+            title: "Performance markerter",
+            description: "Develop and implement comprehensive digital marketing strategies to drive brand awareness and engagement.",
+            responsibilities: [
+                "Plan and execute performance marketing campaigns across various channels.",
+                "Manage budgets and optimize campaigns for ROI.",
+                "Analyze campaign data and provide insights for improvement.",
+                "Conduct A/B testing and experiment with new strategies.",
+                "Stay up-to-date with performance marketing trends and technologies.",
+            ],
+        },
+        {
+            title: "Graphic Designer",
+            description: "Develop and implement comprehensive digital marketing strategies to drive brand awareness and engagement.",
+            responsibilities: [
+                "Design graphics for social media, websites, and marketing materials.",
+                "Develop visual identities and brand assets.",
+                "Collaborate on design concepts and project requirements.",
+                "Create and maintain design guidelines.",
+                "Stay current with design trends and tools.",
+            ],
+        },
 
     ];
 
