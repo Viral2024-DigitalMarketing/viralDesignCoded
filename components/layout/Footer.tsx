@@ -8,14 +8,14 @@ import { useInView } from "react-intersection-observer";
 const Footer = () => {
     const controls = useAnimation();
     const [ref, inView] = useInView({
-        threshold: 0.9, // Trigger when 90% of the footer is in view
+        threshold: 0.9,
     });
 
     useEffect(() => {
         if (inView) {
             controls.start("animate");
         } else {
-            controls.start("initial"); // Reset to initial state when out of view
+            controls.start("initial");
         }
     }, [controls, inView]);
 
@@ -56,19 +56,17 @@ const Footer = () => {
                                     text === "Home"
                                         ? "/"
                                         : text === "Careers"
-                                            ? "/contact#open-roles"  // Target the "Open Roles" section in the contact page
-
-                                                : `/${text.toLowerCase().replace(" ", "")}`
+                                        ? "/contact#open-roles"
+                                        : `/${text.toLowerCase().replace(" ", "")}`
                                 }
                                 className="text-gray-400 hover:text-white transition-colors"
                             >
-            <span className="text-[9px] xs:text-[8px] sm:text-[12px] md:text-sm lg:text-lg xl:text-xl whitespace-nowrap">
-                {text}
-            </span>
+                                <span className="text-[9px] xs:text-[8px] sm:text-[12px] md:text-sm lg:text-lg xl:text-xl whitespace-nowrap">
+                                    {text}
+                                </span>
                             </Link>
                         ))}
                     </div>
-
 
                     {/* Right Side - Email and Social Links */}
                     <div className="flex flex-row flex-nowrap items-center gap-1 xs:gap-1.5 sm:gap-2 md:gap-4 lg:gap-5 max-w-[52%] xs:max-w-[50%] mt-1">
@@ -79,7 +77,7 @@ const Footer = () => {
                             viralbug.hyd@gmail.com
                         </Link>
                         <Link
-                            href="https://instagram.com"
+                            href="https://www.instagram.com/viralbug.in/"
                             className="text-red-600 hover:text-white transition-colors text-[9px] xs:text-[8px] sm:text-[12px] md:text-sm lg:text-lg whitespace-nowrap"
                             target="_blank"
                             rel="noopener noreferrer"
@@ -87,12 +85,20 @@ const Footer = () => {
                             Instagram
                         </Link>
                         <Link
-                            href="https://linkedin.com"
+                            href="https://www.linkedin.com/company/viral-bug/"
                             className="text-red-600 hover:text-white transition-colors text-[9px] xs:text-[8px] sm:text-[12px] md:text-sm lg:text-lg whitespace-nowrap"
                             target="_blank"
                             rel="noopener noreferrer"
                         >
                             LinkedIn
+                        </Link>
+                        <Link
+                            href="https://bit.ly/viralbugreview"
+                            className="text-red-600 hover:text-white transition-colors text-[9px] xs:text-[8px] sm:text-[12px] md:text-sm lg:text-lg whitespace-nowrap"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Review Us
                         </Link>
                     </div>
                 </div>
@@ -100,7 +106,6 @@ const Footer = () => {
 
             {/* Main Footer Text */}
             <div className="relative flex flex-col justify-center items-center py-4 md:py-6 lg:py-8" style={{ overflow: "hidden" }}>
-                {/* Upper Gradient Line */}
                 <div
                     className="w-full h-[1px] mb-1 md:mb-2"
                     style={{
@@ -108,7 +113,6 @@ const Footer = () => {
                         maxWidth: "1440px",
                     }}
                 />
-
                 <div className="w-full flex justify-center items-center px-4">
                     <h2
                         className="viral-bug-heading font-extrabold leading-none tracking-tighter text-center"
@@ -133,8 +137,6 @@ const Footer = () => {
                         {viralBugText}
                     </h2>
                 </div>
-
-                {/* Bottom Gradient Line */}
                 <div
                     className="w-full h-[1px] mt-1 md:mt-2"
                     style={{
@@ -147,8 +149,12 @@ const Footer = () => {
             {/* Footer Bottom */}
             <div className="border-t border-white/10 backdrop-blur-md py-2">
                 <div className="container mx-auto px-4 flex justify-between items-center">
-                    <p className="text-gray-400 text-[8px] xs:text-[9px] sm:text-xs md:text-sm lg:text-sm font-sharp-grotesk">Since 2023</p>
-                    <p className="text-gray-400 text-[6px] xs:text-[6px] sm:text-[6px] md:text-sm lg:text-sm font-sharp-grotesk">All Rights Reserved</p>
+                    <p className="text-gray-400 text-[8px] xs:text-[9px] sm:text-xs md:text-sm lg:text-sm font-sharp-grotesk">
+                        Since 2023
+                    </p>
+                    <p className="text-gray-400 text-[6px] xs:text-[6px] sm:text-[6px] md:text-sm lg:text-sm font-sharp-grotesk">
+                        All Rights Reserved
+                    </p>
                 </div>
             </div>
 
@@ -157,7 +163,6 @@ const Footer = () => {
                     white-space: nowrap;
                 }
 
-                /* Mobile First Approach */
                 @media (max-width: 480px) {
                     .viral-bug-heading {
                         font-size: clamp(3.5rem, 22vw, 140px) !important;
@@ -167,7 +172,6 @@ const Footer = () => {
                     }
                 }
 
-                /* Small Mobile */
                 @media (min-width: 481px) and (max-width: 640px) {
                     .viral-bug-heading {
                         font-size: clamp(4rem, 24vw, 180px) !important;
@@ -176,7 +180,6 @@ const Footer = () => {
                     }
                 }
 
-                /* Tablet */
                 @media (min-width: 641px) and (max-width: 1024px) {
                     .viral-bug-heading {
                         font-size: clamp(4rem, 25vw, 280px) !important;
@@ -185,7 +188,6 @@ const Footer = () => {
                     }
                 }
 
-                /* Desktop */
                 @media (min-width: 1025px) and (max-width: 1440px) {
                     .viral-bug-heading {
                         font-size: clamp(5rem, 28vw, 400px) !important;
@@ -194,7 +196,6 @@ const Footer = () => {
                     }
                 }
 
-                /* Large Desktop */
                 @media (min-width: 1441px) {
                     .viral-bug-heading {
                         font-size: clamp(6rem, 30vw, 480px) !important;
@@ -203,7 +204,6 @@ const Footer = () => {
                     }
                 }
 
-                /* Landscape Mobile */
                 @media (max-height: 500px) and (orientation: landscape) {
                     .viral-bug-heading {
                         font-size: clamp(2rem, 15vw, 80px) !important;

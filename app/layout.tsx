@@ -7,13 +7,12 @@ import Footer from '@/components/layout/Footer';
 import SplashScreen from '@/components/SplashScreen';
 import { Suspense, lazy } from 'react';
 
-// ✅ Lazy load the chatbot to prevent blocking initial render
 const Chatbot = lazy(() => import("@/components/Chatbot"));
 
 const inter = Inter({
     subsets: ['latin'],
-    display: 'swap', // ✅ Improves font loading performance
-    preload: false   // ✅ Don't preload if not critical
+    display: 'swap',
+    preload: false
 });
 
 export const metadata: Metadata = {
@@ -29,33 +28,33 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
         <html lang="en" className="scroll-smooth">
-        <head>
-            <meta name="description" content="Transform your business with our digital agency services." />
-            {/* ✅ Preconnect to external font service */}
-            <link rel="preconnect" href="https://fonts.googleapis.com" />
-            <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-            <link
-                href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700&display=swap"
-                rel="stylesheet"
-            />
-        </head>
-        <body className={`${inter.className} bg-black text-white min-h-screen`}>
-        {/* ✅ Load critical content first */}
-        {/*<SplashScreen />*/}
-        <Navbar />
+            <head>
+                <meta name="description" content="Transform your business with our digital agency services." />
+                <link rel="preconnect" href="https://fonts.googleapis.com" />
+                <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+                <link
+                    href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700&display=swap"
+                    rel="stylesheet"
+                />
+            </head>
+            <body className={`${inter.className} bg-black text-white min-h-screen flex flex-col`}>
+                {/* Optional Splash screen */}
+                {/* <SplashScreen /> */}
 
-        {/* ✅ Main content loads immediately */}
-        <main>{children}</main>
+                <Navbar />
 
-        <Footer />
+                <main className="flex-grow">
+                    {children}
+                </main>
 
-        {/* ✅ Load chatbot LAST with lazy loading and suspense */}
-        <Suspense fallback={null}>
-            <Chatbot />
-        </Suspense>
+                <Footer />
 
-        <Toaster />
-        </body>
+                <Suspense fallback={null}>
+                    <Chatbot />
+                </Suspense>
+
+                <Toaster />
+            </body>
         </html>
     );
 }
