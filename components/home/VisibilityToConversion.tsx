@@ -2,6 +2,7 @@
 
 import React from "react";
 import { useRouter } from "next/navigation";
+import { Radius } from "lucide-react";
 
 interface ServiceItem {
   title: string;
@@ -130,7 +131,7 @@ export default function ServicesSection(): React.ReactElement {
                 {services.map((service, index) => (
                     <div
                         key={`desktop-${index}`}
-                        className="w-full max-w-[400px] h-[360px] lg:max-w-[420px] lg:h-[380px] xl:max-w-[460px] xl:h-[400px] 2xl:max-w-[500px] 2xl:h-[420px] 3xl:max-w-[540px] 3xl:h-[440px] 4xl:max-w-[580px] 4xl:h-[460px] p-6 lg:p-7 xl:p-8 2xl:p-9 3xl:p-10 4xl:p-12 flex flex-col justify-between relative overflow-hidden transition-all duration-300 group bg-black hover:bg-[#B33C3C]"
+                        className="w-full max-w-[400px] h-[360px] lg:max-w-[420px] lg:h-[380px] xl:max-w-[460px] xl:h-[400px] 2xl:max-w-[500px] 2xl:h-[420px] 3xl:max-w-[540px] 3xl:h-[440px] 4xl:max-w-[580px] 4xl:h-[460px] p-6 lg:p-7 xl:p-8 2xl:p-9 3xl:p-10 4xl:p-12 flex flex-col justify-between relative overflow-hidden transition-all duration-300 group bg-black hover:bg-[#B33C3C] rounded-xl"
                     >
                       <div className="flex flex-col h-full">
                         <h3
