@@ -4,12 +4,11 @@ import Link from "next/link";
 import { motion, useAnimation } from "framer-motion";
 import { useEffect } from "react";
 import { useInView } from "react-intersection-observer";
+import { FaInstagram, FaLinkedin, FaFacebook, FaEnvelope } from "react-icons/fa";
 
 const Footer = () => {
     const controls = useAnimation();
-    const [ref, inView] = useInView({
-        threshold: 0.9,
-    });
+    const [ref, inView] = useInView({ threshold: 0.9 });
 
     useEffect(() => {
         if (inView) {
@@ -44,11 +43,12 @@ const Footer = () => {
 
     return (
         <footer className="bg-black text-white" ref={ref} style={{ overflow: "hidden", margin: 0 }}>
-            {/* Navigation and Contact Info */}
+            {/* Navigation and Icons in One Line */}
             <div className="border-t border-white/10 backdrop-blur-md py-3">
-                <div className="w-full flex flex-row justify-between items-center px-2 lg:px-10 overflow-x-auto">
-                    {/* Left Side - Navigation Links */}
-                    <div className="flex flex-row flex-nowrap gap-1 xs:gap-1.5 sm:gap-2 md:gap-4 lg:gap-5 max-w-[45%] xs:max-w-[48%] items-center">
+                <div className="w-full px-2 lg:px-10 flex flex-wrap sm:flex-nowrap justify-between items-center gap-2 sm:gap-0">
+
+                    {/* Navigation Links */}
+                    <div className="flex flex-wrap gap-3 justify-center sm:justify-start">
                         {["Home", "Services", "Portfolio", "Careers", "Contact"].map((text, i) => (
                             <Link
                                 key={i}
@@ -56,55 +56,37 @@ const Footer = () => {
                                     text === "Home"
                                         ? "/"
                                         : text === "Careers"
-                                        ? "/contact#open-roles"
-                                        : `/${text.toLowerCase().replace(" ", "")}`
+                                            ? "/contact#open-roles"
+                                            : `/${text.toLowerCase().replace(" ", "")}`
                                 }
                                 className="text-gray-400 hover:text-white transition-colors"
                             >
-                                <span className="text-[9px] xs:text-[8px] sm:text-[12px] md:text-sm lg:text-lg xl:text-xl whitespace-nowrap">
+                                <span className="text-[10px] xs:text-[10px] sm:text-[12px] md:text-sm lg:text-lg whitespace-nowrap">
                                     {text}
                                 </span>
                             </Link>
                         ))}
                     </div>
 
-                    {/* Right Side - Email and Social Links */}
-                    <div className="flex flex-row flex-nowrap items-center gap-1 xs:gap-1.5 sm:gap-2 md:gap-4 lg:gap-5 max-w-[52%] xs:max-w-[50%] mt-1">
-                        <Link
-                            href="mailto:viralbug.hyd@gmail.com"
-                            className="text-red-600 hover:text-white transition-colors text-[9px] xs:text-[8px] sm:text-[12px] md:text-sm lg:text-lg whitespace-nowrap"
-                        >
-                            viralbug.hyd@gmail.com
+                    {/* Social Icons */}
+                    <div className="flex gap-3 sm:gap-4 justify-center sm:justify-end text-red-600 text-lg">
+                        <Link href="mailto:viralbug.hyd@gmail.com" target="_blank" rel="noopener noreferrer">
+                            <FaEnvelope className="hover:text-white transition-colors" />
                         </Link>
-                        <Link
-                            href="https://www.instagram.com/viralbug.in/"
-                            className="text-red-600 hover:text-white transition-colors text-[9px] xs:text-[8px] sm:text-[12px] md:text-sm lg:text-lg whitespace-nowrap"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            Instagram
+                        <Link href="https://www.instagram.com/viralbug.in/" target="_blank" rel="noopener noreferrer">
+                            <FaInstagram className="hover:text-white transition-colors" />
                         </Link>
-                        <Link
-                            href="https://www.linkedin.com/company/viral-bug/"
-                            className="text-red-600 hover:text-white transition-colors text-[9px] xs:text-[8px] sm:text-[12px] md:text-sm lg:text-lg whitespace-nowrap"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            LinkedIn
+                        <Link href="https://www.linkedin.com/company/viral-bug/" target="_blank" rel="noopener noreferrer">
+                            <FaLinkedin className="hover:text-white transition-colors" />
                         </Link>
-                        <Link
-                            href="https://bit.ly/viralbugreview"
-                            className="text-red-600 hover:text-white transition-colors text-[9px] xs:text-[8px] sm:text-[12px] md:text-sm lg:text-lg whitespace-nowrap"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            Review Us
+                        <Link href="https://www.facebook.com/viralbug.in" target="_blank" rel="noopener noreferrer">
+                            <FaFacebook className="hover:text-white transition-colors" />
                         </Link>
                     </div>
                 </div>
             </div>
 
-            {/* Main Footer Text */}
+            {/* Main Footer Logo */}
             <div className="relative flex flex-col justify-center items-center py-4 md:py-6 lg:py-8" style={{ overflow: "hidden" }}>
                 <div
                     className="w-full h-[1px] mb-1 md:mb-2"
@@ -131,7 +113,7 @@ const Footer = () => {
                             width: "100%",
                             maxWidth: "100vw",
                             height: "auto",
-                            minHeight: "clamp(3rem, 24vw, 400px)",
+                            minHeight: "clamp(3rem, 24vw, 400px)"
                         }}
                     >
                         {viralBugText}
@@ -162,53 +144,10 @@ const Footer = () => {
                 .viral-bug-heading {
                     white-space: nowrap;
                 }
-
-                @media (max-width: 480px) {
+                @media (max-width: 640px) {
                     .viral-bug-heading {
-                        font-size: clamp(3.5rem, 22vw, 140px) !important;
-                        line-height: 0.9 !important;
-                        letter-spacing: -0.04em !important;
-                        min-height: clamp(3rem, 20vw, 120px) !important;
-                    }
-                }
-
-                @media (min-width: 481px) and (max-width: 640px) {
-                    .viral-bug-heading {
-                        font-size: clamp(4rem, 24vw, 180px) !important;
-                        line-height: 0.85 !important;
-                        min-height: clamp(3.5rem, 22vw, 160px) !important;
-                    }
-                }
-
-                @media (min-width: 641px) and (max-width: 1024px) {
-                    .viral-bug-heading {
-                        font-size: clamp(4rem, 25vw, 280px) !important;
-                        line-height: 0.85 !important;
-                        min-height: clamp(3.5rem, 22vw, 240px) !important;
-                    }
-                }
-
-                @media (min-width: 1025px) and (max-width: 1440px) {
-                    .viral-bug-heading {
-                        font-size: clamp(5rem, 28vw, 400px) !important;
-                        line-height: 0.85 !important;
-                        min-height: clamp(4.5rem, 24vw, 340px) !important;
-                    }
-                }
-
-                @media (min-width: 1441px) {
-                    .viral-bug-heading {
-                        font-size: clamp(6rem, 30vw, 480px) !important;
-                        line-height: 0.85 !important;
-                        min-height: clamp(5rem, 26vw, 400px) !important;
-                    }
-                }
-
-                @media (max-height: 500px) and (orientation: landscape) {
-                    .viral-bug-heading {
-                        font-size: clamp(2rem, 15vw, 80px) !important;
-                        line-height: 1 !important;
-                        min-height: clamp(1.8rem, 14vw, 70px) !important;
+                        font-size: clamp(3rem, 20vw, 100px);
+                        line-height: 1;
                     }
                 }
             `}</style>

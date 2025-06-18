@@ -4,7 +4,7 @@ import CaseStudies from '@/components/portfolio/CaseStudies';
 
 export const metadata: Metadata = {
     title: 'Our Portfolio | ViralBug Digital Marketing',
-    description: 'Explore our successful client case studies and projects that showcase our expertise in digital marketing and web development.',
+    description: 'See how we helped brands grow online—explore real client success stories in SEO, ads & content. ViralBug\'s portfolio proves the results.',
 };
 export default function PortfolioPage() {
   return (

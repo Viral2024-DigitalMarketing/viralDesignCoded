@@ -4,7 +4,7 @@ import BlogGrid from '@/components/blog/BlogGrid';
 
 export const metadata: Metadata = {
   title: 'Blog | ViralBug Digital Marketing',
-    description: 'Stay updated with the latest insights, trends, and tips in digital marketing, SEO, and web development.'
+    description: 'Read our expert blog on SEO, paid ads, social media & content tips. Stay ahead in digital marketing with ViralBug Digital’s latest updates.'
 
 };
 

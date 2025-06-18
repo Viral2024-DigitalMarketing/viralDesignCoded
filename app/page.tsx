@@ -10,7 +10,7 @@ import ProcessSection from "@/components/home/ProcessSection";
 
 export const metadata: Metadata = {
     title: 'ViralBug | Digital Marketing Agency for Business Growth',
-    description: 'Get more leads, sales & growth with ViralBug – your trusted digital marketing agency. We help brands go viral and achieve results through SEO, ads & innovative strategies.',
+    description: 'Top digital marketing agency in Hyderabad—boost your brand with expert SEO, paid ads, and social media strategies. Get results with ViralBug.',
     icons: {
         icon: '/images/log.svg',
         shortcut: '/favicon-16x16.png',

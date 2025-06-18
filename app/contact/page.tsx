@@ -5,7 +5,7 @@ import AboutCareers from '@/components/contact/AboutCareers';
 
 export const metadata: Metadata = {
     title: 'Contact Us |ViralBug Digital Marketing',
-    description: 'Get in touch with our expert team to discuss your digital transformation needs and how we can help your business grow online.',
+    description: 'Ready to grow your business? Contact ViralBug Digital—Hyderabad’s trusted digital marketing agency. Book a free consultation today.',
 };
 export default function ContactPage() {
   return (
