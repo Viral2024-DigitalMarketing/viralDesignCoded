@@ -48,7 +48,7 @@ const Footer = () => {
                 <div className="w-full px-2 lg:px-10 flex flex-wrap sm:flex-nowrap justify-between items-center gap-2 sm:gap-0">
 
                     {/* Navigation Links */}
-                    <div className="flex flex-wrap gap-3 justify-center sm:justify-start">
+                    <div className="flex flex-wrap items-center gap-3 justify-center sm:justify-start">
                         {["Home", "Services", "Portfolio", "Careers", "Contact"].map((text, i) => (
                             <Link
                                 key={i}
@@ -69,7 +69,7 @@ const Footer = () => {
                     </div>
 
                     {/* Social Icons */}
-                    <div className="flex gap-3 sm:gap-4 justify-center sm:justify-end text-red-600 text-lg">
+                    <div className="flex gap-3 sm:gap-4 justify-center sm:justify-end text-red-600 text-xl">
                         <Link href="mailto:viralbug.hyd@gmail.com" target="_blank" rel="noopener noreferrer">
                             <FaEnvelope className="hover:text-white transition-colors" />
                         </Link>
